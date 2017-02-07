@@ -1,0 +1,54 @@
+h1, h2 {
+  font-family: 'Exo 2', sans-serif;
+}
+
+abbr[title="required"] {
+  color:#23B7E5;
+}
+
+p.help-block {
+  color: #263238;
+}
+
+hr {
+  max-width: 400px;
+  border-color: #fff;
+}
+
+a:hover {
+  color:#23B7E5;
+  text-decoration:none;
+}
+
+.white {
+  color: #fff;
+}
+
+.uppercase {
+  font-family: 'Josefin Sans', sans-serif;
+  text-transform: uppercase;
+}
+
+.login-form {
+  text-align:left;
+}
+
+.login-form a {
+  color: #263238;
+}
+
+.login-form a:hover {
+  color: #23B7E5;
+}
+
+/* Inside Form */
+
+.card-group hr {
+  margin-top:25px;
+  max-width:50px;
+  border-color: #fff;
+}
+
+.form-actions {
+  margin-bottom:8px;
+}

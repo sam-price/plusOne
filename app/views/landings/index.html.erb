@@ -1,4 +1,4 @@
-<div class="landing-bg"></div>
+<%= render 'background' %> <!-- Render Background Partial -->
 <!--Using Flexbox and Bootstrap stlying to align elements in the center of the page-->
 <div class="app flex-row align-items-center">
   <div class="container">
@@ -18,8 +18,8 @@
             </div>
 
             <div class="login">
-              <a href="#" class="btn btn-primary" role="button">Login</a>
-              <a href="#" class="btn btn-primary" role="button">Register</a>
+              <%= link_to 'Login', new_user_session_path, class: 'btn btn-primary' %>
+              <%= link_to 'Register', new_user_registration_path, class: 'btn btn-primary' %>
             </div>
           </header>
 
