@@ -1,3 +1,129 @@
 // Place all the styles related to the Landings controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+/* Background image styling and filter */
+.landing-bg {
+  background:url(bg2.jpg);
+  filter: brightness(0.3);
+  height: 100%;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+/* Positioning containers over background image */
+.app {
+  overflow-x: hidden;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  text-align:center;
+  -webkit-transform: translateX(-50%) translateY(-50%);
+  -ms-transform: translateX(-50%) translateY(-50%);
+  transform: translateX(-50%) translateY(-50%);
+}
+
+.landing hr {
+  max-width: 400px;
+  border-color: #fff;
+}
+
+.landing h2, h3, h4 {
+  font-family: 'Exo 2', sans-serif;
+  color: #fff;
+}
+
+.landing .text-black {
+  color: #292b2c;
+}
+
+.landing h3, p, a {
+  font-weight: 400;
+  color: #fff;
+}
+
+.landing .uppercase {
+  font-family: 'Josefin Sans', sans-serif;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+
+.landing a:hover {
+  color:#23B7E5;
+}
+
+.logo-top {
+  position: absolute;
+  overflow: hidden;
+  position: absolute;
+  top: 2%;
+  left:50%;
+  -webkit-transform: translateX(-50%) translateY(-2%);
+ 	-ms-transform: translateX(-50%) translateY(-2%);
+ 		transform: translateX(-50%) translateY(-2%);
+  padding:20px 0px 5px 0px;
+}
+
+.logo-top i {
+  color:#23B7E5;
+}
+.logo-top h4 {
+  font-size: 2.8em;
+}
+.landing .logo {
+  padding:20px 0px 5px 0px;
+}
+
+.landing .logo i {
+  color:#23B7E5;
+}
+.landing .logo h4 {
+  font-size: 2.8em;
+}
+
+.landing .slogan {
+  margin-bottom:20px;
+}
+
+.landing .slogan h2 {
+  font-size: 3.050em;
+}
+
+.landing .login {
+  margin: 15px 0px 15px 0px;
+}
+
+.landing .login h3 {
+  font-size: 1.6em;
+  letter-spacing: 4px;
+}
+
+.landing .login a {
+  padding:10px;
+  width:150px;
+}
+
+.landing .social {
+  padding-top: 8px;
+}
+
+.landing .social a {
+  margin-bottom: 8px;
+}
+
+.landing .social p {
+  font-size: 1.1em;
+  font-weight: 300;
+  letter-spacing: 3px;
+}
+
+.landing .copyright {
+  margin-top:10px;
+}
+
+.landing .copyright p {
+  letter-spacing: 2px;
+  font-size: 0.9em;
+  line-height: 10px;
+}
