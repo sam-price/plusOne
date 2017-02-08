@@ -7,6 +7,10 @@ class User < ApplicationRecord
   include Storext.model
   # 'settings' matches my database column
   store_attributes :settings do
-    
+    ex_freq String
+    ex_time String
+    ex_type String
+    public Boolean, default: true
+    setup Boolean, default: false
   end
 end
