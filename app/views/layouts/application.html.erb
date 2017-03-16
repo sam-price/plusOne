@@ -2,16 +2,32 @@
 <html>
   <head>
     <title>plusOne</title>
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="plusOne - Digital Media CTP Project">
+    <meta name="author" content="Sam Price">
+    <meta name="keyword" content="Digital Media,CTP,Rails,HTML,CSS">
+
     <%= csrf_meta_tags %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
 
-    <link href="https://fonts.googleapis.com/css?family=Exo+2|Josefin+Sans" rel="stylesheet"> 
+    <link href="https://fonts.googleapis.com/css?family=Exo+2|Josefin+Sans" rel="stylesheet">
   </head>
 
-  <body>
+  <% if user_signed_in? %>
+    <body class="app header-fixed sidebar-fixed aside-menu-fixed aside-menu-hidden">
+      <%= render 'layouts/main' %>
       <%= yield %>
 
+      <%= render 'layouts/footer' %>
+
+  <% else %>
+
+  <%= yield %>
+
+
   </body>
+  <% end %>
 </html>

@@ -6,16 +6,16 @@ abbr[title="required"] {
   color:#23B7E5;
 }
 
-p.help-block {
+.app-root p.help-block {
   color: #263238;
 }
 
-hr {
+.app-root hr {
   max-width: 400px;
   border-color: #fff;
 }
 
-a:hover {
+.app-root a:hover {
   color:#23B7E5;
   text-decoration:none;
 }
@@ -29,26 +29,26 @@ a:hover {
   text-transform: uppercase;
 }
 
-.login-form {
+.app-root .login-form {
   text-align:left;
 }
 
-.login-form a {
+.app-root .login-form a {
   color: #263238;
 }
 
-.login-form a:hover {
+.app-root .login-form a:hover {
   color: #23B7E5;
 }
 
 /* Inside Form */
 
-.card-group hr {
+.app-root .card-group hr {
   margin-top:25px;
   max-width:50px;
   border-color: #fff;
 }
 
-.form-actions {
+.app-root .form-actions {
   margin-bottom:8px;
 }
