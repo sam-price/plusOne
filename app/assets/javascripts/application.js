@@ -12,6 +12,7 @@
 //
 //= require jquery
 //= require bootstrap-sprockets
+//= require material
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
@@ -157,3 +158,7 @@ function init(url) {
   $('[rel="popover"],[data-rel="popover"],[data-toggle="popover"]').popover();
 
 }
+
+document.addEventListener('turbolinks:load', function() {
+  componentHandler.upgradeDom();
+});

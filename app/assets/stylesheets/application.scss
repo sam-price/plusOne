@@ -1,7 +1,30 @@
-/* Using SASS and importing vendor/custom scss files */
+// Using SASS and importing vendor/custom scss files
+
+
 @import "coreui/style";
 @import "bootstrap";
 @import "font-awesome-sprockets";
 @import "font-awesome";
+
+// Variables and mixins
+@import "material/variables";
+@import "material/mixins";
+
+// Resets and dependencies
+
+// Components
+
+@import "material/menu";
+
+@import "material/badge";
+@import "material/button";
+@import "material/card";
+
+@import "material/shadow";
+
+@import "material/material-icons";
+@import "material/roboto";
+@import "material/typography";
+
 @import "landings";
 @import "devise";
