@@ -1,0 +1,20 @@
+.w-card-center {
+    display: flex;           /* establish flex container */
+    flex-flow: row wrap; /* make main axis vertical */
+    justify-content: center; /* center items vertically, in this case */
+    align-items: center;
+}
+.welcome-card-wide.mdl-card {
+  width: 512px;
+  margin:20px;
+  display: inline-block;
+
+}
+.welcome-card-wide > .mdl-card__title {
+  color: #fff;
+  height: 176px;
+  background: url('https://assets.materialup.com/uploads/dc9af6f0-dd2c-4ee4-b2d7-5e6f45ecbce4/preview.gif') center / cover;
+}
+.welcome-card-wide > .mdl-card__menu {
+  color: #fff;
+}
