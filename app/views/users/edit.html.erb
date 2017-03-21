@@ -1,0 +1,27 @@
+<div class="control-group">
+  <%= form_for @user do |f| %>
+
+    <% @sports.each do |sport| %>
+      <label class="control control--checkbox">
+        <%= check_box_tag "user[sport_ids][]", sport.id, f.object.sports.include?(sport) %>
+
+        <!-- See if I can put this in its own method - logic will make the view messy
+            Method needs to go into appllication_helper.rb
+        -->
+        <% if @running.name == sport.name %>
+          <%= image_tag image_url("w1.png"), class: "off" %>
+          <%= image_tag image_url("w2.png"), class: "on" %>
+        <% elsif @swimming.name == sport.name %>
+          <%= image_tag image_url("https://secure.ymcanyc.org/page/-/uploads/sub-class-thumbs/running-thumbnail.png"), class: "off" %>
+          <%= image_tag image_url("w2.png"), class: "on" %>
+        <% end %>
+        <div class="control__indicator"></div>
+        <%= sport.name %>
+
+
+      </label>
+    <% end %>
+
+    <%= f.button :submit %>
+  <% end %>
+</div>

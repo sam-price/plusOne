@@ -16,8 +16,8 @@ module ApplicationHelper
     elsif (evening..night).cover? now
       'Good Evening'
     elsif (night..tomorrow).cover? now
-      'Good Night'
+      'Good Evening'
     end
   end
-  
+
 end
