@@ -5,7 +5,7 @@
         <li class="nav-item">
             <a class="nav-link navbar-toggler sidebar-toggler" href="#">☰</a>
         </li>
-        
+
         <li class="nav-item px-1">
             <%= link_to 'Home', root_path, class: 'nav-link' %>
         </li>
@@ -29,7 +29,7 @@
         <li class="nav-item dropdown">
             <a class="nav-link dropdown-toggle nav-link" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
                 <img src="images/bg.jpg" class="img-avatar" alt="<%= current_user.email %>">
-                <span class="hidden-md-down"><%= current_user.email %></span>
+                <span class="hidden-md-down"><%= current_user.first_name %> <%= current_user.last_name %></span>
             </a>
             <div class="dropdown-menu dropdown-menu-right">
 
