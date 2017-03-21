@@ -67,6 +67,47 @@ CREATE TABLE schema_migrations (
 
 
 --
+-- Name: sports; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE sports (
+    id integer NOT NULL,
+    name character varying,
+    created_at timestamp without time zone NOT NULL,
+    updated_at timestamp without time zone NOT NULL
+);
+
+
+--
+-- Name: sports_id_seq; Type: SEQUENCE; Schema: public; Owner: -
+--
+
+CREATE SEQUENCE sports_id_seq
+    START WITH 1
+    INCREMENT BY 1
+    NO MINVALUE
+    NO MAXVALUE
+    CACHE 1;
+
+
+--
+-- Name: sports_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
+--
+
+ALTER SEQUENCE sports_id_seq OWNED BY sports.id;
+
+
+--
+-- Name: sports_users; Type: TABLE; Schema: public; Owner: -
+--
+
+CREATE TABLE sports_users (
+    user_id integer NOT NULL,
+    sport_id integer NOT NULL
+);
+
+
+--
 -- Name: users; Type: TABLE; Schema: public; Owner: -
 --
 
@@ -112,6 +153,13 @@ ALTER SEQUENCE users_id_seq OWNED BY users.id;
 
 
 --
+-- Name: sports id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sports ALTER COLUMN id SET DEFAULT nextval('sports_id_seq'::regclass);
+
+
+--
 -- Name: users id; Type: DEFAULT; Schema: public; Owner: -
 --
 
@@ -135,11 +183,26 @@ ALTER TABLE ONLY schema_migrations
 
 
 --
+-- Name: sports sports_pkey; Type: CONSTRAINT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY sports
+    ADD CONSTRAINT sports_pkey PRIMARY KEY (id);
+
+
+--
 -- Name: users users_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY users
     ADD CONSTRAINT users_pkey PRIMARY KEY (id);
+
+
+--
+-- Name: index_sports_users_on_user_id_and_sport_id; Type: INDEX; Schema: public; Owner: -
+--
+
+CREATE INDEX index_sports_users_on_user_id_and_sport_id ON sports_users USING btree (user_id, sport_id);
 
 
 --
@@ -173,6 +236,8 @@ INSERT INTO schema_migrations (version) VALUES
 ('20170207163632'),
 ('20170207195030'),
 ('20170321105604'),
-('20170321145024');
+('20170321145024'),
+('20170321210612'),
+('20170321211336');
 
 
