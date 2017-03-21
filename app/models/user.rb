@@ -4,6 +4,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+ # Adding enumeration values for gender and postgresql
+ enum gender: {
+   Male:                   'Male',
+   Female:                 'Female',
+   Other:                  'Other'
+ }
+
   include Storext.model
   # 'settings' matches my database column
   store_attributes :settings do
