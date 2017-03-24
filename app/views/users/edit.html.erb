@@ -8,10 +8,10 @@
         <!-- See if I can put this in its own method - logic will make the view messy
             Method needs to go into appllication_helper.rb
         -->
-        <% if @running.name == sport.name %>
+        <% if @weightlifting.name == sport.name %>
           <%= image_tag image_url("w1.png"), class: "off" %>
           <%= image_tag image_url("w2.png"), class: "on" %>
-        <% elsif @swimming.name == sport.name %>
+        <% elsif @running.name == sport.name %>
           <%= image_tag image_url("https://secure.ymcanyc.org/page/-/uploads/sub-class-thumbs/running-thumbnail.png"), class: "off" %>
           <%= image_tag image_url("w2.png"), class: "on" %>
         <% end %>

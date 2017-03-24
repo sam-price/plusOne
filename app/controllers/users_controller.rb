@@ -3,9 +3,9 @@ class UsersController < ApplicationController
     @user = User.find(params[:id])
     @sports = Sport.all.order(name: :asc)
 
-    # Needs sorting into it's own method - don't clutter up the controller 
+    # Needs sorting into it's own method - don't clutter up the controller
+    @weightlifting = Sport.find_by_name('Weightlifting')
     @running = Sport.find_by_name('Running')
-    @swimming = Sport.find_by_name('Swimming')
   end
 
   def update

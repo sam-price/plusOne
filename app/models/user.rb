@@ -6,11 +6,11 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :trackable, :validatable
 
  # Adding enumeration values for gender and postgresql
- enum gender: {
-   Male:                   'Male',
-   Female:                 'Female',
-   Other:                  'Other'
- }
+ # enum gender: {
+ #   Male:                   'Male',
+ #   Female:                 'Female',
+ #   Other:                  'Other'
+ # }
 
   include Storext.model
   # 'settings' matches my database column
