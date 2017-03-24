@@ -54,8 +54,8 @@ gem 'tzinfo-data', platforms: [:mingw, :mswin, :x64_mingw, :jruby]
 
 #### Custom GEMS ####
 # Bootstrap
-gem 'bootstrap', '~> 4.0.0.alpha6'
-gem "autoprefixer-rails"
+gem 'bootstrap-sass', '~> 3.3.6'
+gem 'autoprefixer-rails'
 
 gem 'font-awesome-sass'
 gem 'simple_form'
