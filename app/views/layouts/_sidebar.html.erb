@@ -14,11 +14,11 @@
 
   <div class="sidebar-wrapper">
         <ul class="nav">
-            <li class="active">
-              <%= link_to '<i class="material-icons">dashboard</i><p>Dashboard</p>'.html_safe, root_path %>
+            <li>
+              <%= link_to_active_li '<i class="material-icons">person</i><p>Dashboard</p>'.html_safe, root_path %>
             </li>
             <li>
-              <%= link_to '<i class="material-icons">person</i><p>Profile</p>'.html_safe, edit_user_registration_path %>
+              <%= link_to_active_li '<i class="material-icons">person</i><p>Profile</p>'.html_safe, edit_user_registration_path %>
             </li>
         </ul>
   </div>

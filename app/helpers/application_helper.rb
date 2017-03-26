@@ -20,4 +20,12 @@ module ApplicationHelper
     end
   end
 
+  # Active Link helper -
+  def link_to_active_li(body, url, html_options = {})
+    active = "active" if current_page?(url)
+      content_tag :li, class: active do
+        link_to body, url, html_options
+      end
+  end
+
 end
