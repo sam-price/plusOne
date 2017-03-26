@@ -15,6 +15,7 @@
 //= require bootstrap-datepicker
 //= require material.min
 //= require material-kit
+//= require material
 //= require nouislider.min
 //= require jquery_ujs
 //= require turbolinks
