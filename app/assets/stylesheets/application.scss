@@ -12,12 +12,8 @@
 @import "material/variables";
 @import "material/mixins";
 
-// Resets and dependencies
-
 // Components
-
 @import "material/menu";
-
 @import "material/badge";
 @import "material/button";
 @import "material/card";
@@ -25,32 +21,11 @@
 @import "material/shadow";
 
 @import "material/material-icons";
-// @import "material/roboto";
 // @import "material/typography";
 
 @import "landings";
 @import "dashboards";
 
-
-/*// Variables and mixins
-@import "material/variables";
-@import "material/mixins";
-
-// Resets and dependencies
-
-// Components
-
-@import "material/menu";
-
-@import "material/badge";
-@import "material/button";
-@import "material/card";
-
-@import "material/shadow";
-
-@import "material/material-icons";
-@import "material/roboto";
-@import "material/typography";*/
 body{
   background: #f5f5f5;
 }
