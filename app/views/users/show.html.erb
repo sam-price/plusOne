@@ -1,3 +1,8 @@
-<% title 'Profile Page#{@user.id}' %>
+<% title 'Profile Page' %>
+
+<% if @user.sports.empty? %>
+  <h2>This profile is currently not setup.</h2>
+<% else %>
 <%= @user.first_name %>'s sports are:
 <%= @user.sports.map(&:name).join(', ') %>.
+<% end %>

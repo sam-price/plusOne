@@ -19,7 +19,11 @@
 
         <li>
           <%= link_to '<i class="material-icons">settings</i>
-          <p class="hidden-lg hidden-md">Settings</p>'.html_safe, edit_user_registration_path, class: 'dropdown-toggle' %>
+          <p class="hidden-lg hidden-md">Settings</p>'.html_safe, edit_user_registration_path(current_user), class: 'dropdown-toggle' %>
+        </li>
+
+        <li>
+          <%= link_to('Logout', destroy_user_session_path, :method => :delete) %>
         </li>
 
         <li class="dropdown">

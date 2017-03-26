@@ -4,9 +4,10 @@ class ApplicationController < ActionController::Base
 
   # Creates a custom path for after the sign in - Allowing for Users to change
   # their exercise preferences
-  def after_sign_in_path_for(_resource)
-    edit_user_path(current_user)
-  end
+  # def after_sign_in_path_for(_resource)
+  #   edit_user_path(current_user)
+  # end
+
 
   # Allowing custom parameters for Devise
   before_action :configure_permitted_parameters, if: :devise_controller?

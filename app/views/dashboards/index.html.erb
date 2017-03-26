@@ -1,8 +1,24 @@
-
 <% title "Dashboard" %>
-
+<div class="text-center">
 <h1><%= greet %>, <%= current_user.first_name %>!</h1>
 
+<!-- Adding login for when people sign in for the first time - Good UX -->
+<% if current_user && current_user.sign_in_count == 1 %>
+
+  <h2>It seems like it's your first time here.</h2>
+
+<% end %>
+
+<% if current_user.sports.empty? %>
+
+  <p>To get the most out of this platform you will need to setup your preferences.</p>
+
+  <%= link_to 'Setup Profile', edit_user_path(current_user), class: 'btn btn-default' %>
+
+  
+
+<% end %>
+</div>
 <div class="w-card-center">
   <div class="welcome-card-wide mdl-card mdl-shadow--2dp">
     <div class="mdl-card__title">
