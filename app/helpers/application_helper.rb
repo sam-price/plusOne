@@ -20,7 +20,7 @@ module ApplicationHelper
     end
   end
 
-  # Active Link helper -
+  # Active Link helper - http://stackoverflow.com/questions/17481812/dynamically-add-active-class-to-bootstrap-li-in-rails
   def link_to_active_li(body, url, html_options = {})
     active = "active" if current_page?(url)
       content_tag :li, class: active do
@@ -28,6 +28,7 @@ module ApplicationHelper
       end
   end
 
+  # https://rubyplus.com/articles/3321-Pretty-Page-Title-in-Rails-5
   def title(page_title)
     content_for(:title) { page_title }
   end
