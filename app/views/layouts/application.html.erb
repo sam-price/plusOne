@@ -18,19 +18,15 @@
   </head>
 
 <body class="<%= controller_name %> <%= action_name %>">
-  <% if current_user %>
+
+  <% if user_signed_in? %>
 
       <%= render 'layouts/main' %>
-      <%= render 'layouts/footer' %>
 
   <% else %>
 
-<%= render 'landings/nav' %>
-
-
-
-    <%= yield %>
-
+      <%= render 'landings/nav' %>
+      <%= yield %>
 
   <% end %>
 </body>

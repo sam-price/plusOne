@@ -1,18 +1,22 @@
-<%= render 'layouts/nav_top' %>
-<div class="app-body">
-  <%= render 'layouts/nav_sidebar' %>
+<div class="wrapper">
 
-    <!-- Main content -->
-    <main class="main">
-      <%= render 'layouts/breadcrumb' %>
-        <div class="container-fluid">
-            <div class="animated fadeIn">
-              <!--Content of plusOne Application-->
-              <%= yield %>
-            </div>
+  <%= render 'layouts/sidebar' %>
+
+  <div class="main-panel">
+
+    <%= render 'layouts/nav' %>
+
+    <div class="content">
+      <div class="container-fluid">
+        <div class="animated fadeIn">
+
+          <%= yield %>
+
         </div>
-        <!-- /.conainer-fluid -->
-    </main>
+      </div>
+    </div>
 
-    <%= render 'layouts/aside_menu' %>
+    <%= render 'layouts/footer' %>
+
+  </div>
 </div>
