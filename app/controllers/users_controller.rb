@@ -1,8 +1,15 @@
 class UsersController < ApplicationController
   def edit
     @user = User.find(params[:id])
-    @sports = Sport.all.order(name: :asc)
+    @auth = current_user.id
 
+    # To make sure you can't edit someone elses profile
+    if @auth != @user.id
+      redirect_to @user
+    end
+
+    
+    @sports = Sport.all.order(name: :asc)
     # Needs sorting into it's own method - don't clutter up the controller
     @weightlifting = Sport.find_by_name('Weightlifting')
     @running = Sport.find_by_name('Running')
