@@ -1,14 +1,14 @@
 // Using SASS and importing vendor/custom scss files
 @import "bootstrap-sprockets";
 @import "bootstrap";
-@import "material";
+// @import "material";
 @import "material-kit";
 @import "material-dashboard";
 @import "font-awesome-sprockets";
 @import "font-awesome";
 
 
-/*// Variables and mixins
+// Variables and mixins
 @import "material/variables";
 @import "material/mixins";
 
@@ -25,8 +25,8 @@
 @import "material/shadow";
 
 @import "material/material-icons";
-@import "material/roboto";
-@import "material/typography";*/
+// @import "material/roboto";
+// @import "material/typography";
 
 @import "landings";
 @import "dashboards";
@@ -51,11 +51,9 @@
 @import "material/material-icons";
 @import "material/roboto";
 @import "material/typography";*/
-
-body {
-  background: #fff;
+body{
+  background: #f5f5f5;
 }
-
 .animated {
   -webkit-animation-duration: 1s;
   animation-duration: 1s;

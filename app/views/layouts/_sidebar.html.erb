@@ -1,0 +1,25 @@
+<div class="sidebar" data-color="purple" data-image="<%= image_url('test.jpg') %>">
+
+<!--
+      Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
+
+      Tip 2: you can also add an image using data-image tag
+  -->
+
+<div class="logo">
+  <a href="#" class="simple-text">
+    Alium
+  </a>
+</div>
+
+  <div class="sidebar-wrapper">
+        <ul class="nav">
+            <li class="active">
+              <%= link_to '<i class="material-icons">dashboard</i><p>Dashboard</p>'.html_safe, root_path %>
+            </li>
+            <li>
+              <%= link_to '<i class="material-icons">person</i><p>Profile</p>'.html_safe, edit_user_registration_path %>
+            </li>
+        </ul>
+  </div>
+</div>

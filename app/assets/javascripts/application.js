@@ -12,16 +12,21 @@
 //
 //= require jquery
 //= require bootstrap
+//= require jquery.turbolinks
+//= require jquery_ujs
+
 //= require bootstrap-datepicker
 //= require material.min
 //= require material-kit
 //= require material
 //= require nouislider.min
-//= require jquery_ujs
-//= require turbolinks
+//= require material-dashboard
+
+// require turbolinks
 //= require_tree .
 
 $(document).on('turbolinks:load', function() {
+
   $(function() {
   $('a[href*="#"]:not([href="#"])').click(function() {
     if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -36,9 +41,12 @@ $(document).on('turbolinks:load', function() {
     }
   });
   });
-})
 
-
-document.addEventListener('turbolinks:load', function() {
-  componentHandler.upgradeDom();
 });
+
+}) // end turbolinks
+//
+//
+// document.addEventListener('turbolinks:load', function() {
+// //   componentHandler.upgradeDom();
+// });
