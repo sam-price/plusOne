@@ -12,7 +12,6 @@
 //
 //= require jquery
 //= require bootstrap
-
 //= require jquery_ujs
 
 //= require bootstrap-datepicker
@@ -22,6 +21,7 @@
 //= require nouislider.min
 //= require bootstrap-notify
 //= require material-dashboard
+
 
 // require turbolinks
 //= require_tree .

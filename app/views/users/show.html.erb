@@ -1,20 +1,17 @@
-<% title @user.first_name + ' ' + @user.last_name + ' - Profile' %>
-
+<% if current_user.id == @user.id %>
+  <% title 'Your Profile' %>
+<% else %>
+  <% title 'User Profile' %>
+<% end %>
 <div class="row">
-  <div class="col-md-2">
-    <button class="btn btn-default btn-block"><i class="material-icons">search</i> All Users</button>
-  </div>
-
-<div class="col-md-8"></div>
-
-  <div class="col-md-2">
-
+  <div class="col-md-2 col-md-offset-5">
+    <br>
   </div>
 
 </div>
 
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
+  <div class="col-md-8">
     <br>
     <div class="card card-profile">
       <%= link_to '<i class="material-icons">settings</i>'.html_safe, edit_user_registration_path(current_user), class: 'btn btn-white btn-round btn-just-icon floatright' %>
@@ -41,6 +38,13 @@
 
       </div>
     </div><!--end card profile-->
+  </div>
+
+  <div class="col-md-4"><br><br>
+    <button class="btn btn-default btn-block"><i class="material-icons">search</i> All Users</button>
+    <button class="btn btn-default btn-block"><i class="material-icons">search</i> All Users</button>
+    <button class="btn btn-default btn-block"><i class="material-icons">search</i> All Users</button>
+
   </div>
 </div>
 
