@@ -6,14 +6,19 @@
 </div>
 
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-8 col-md-offset-2">
     <br>
     <div class="card card-profile">
       <div class="card-avatar">
-        <img src="http://www.american.edu/uploads/profiles/large/chris_palmer_profile_11.jpg" alt="Profile Picture" class="img">
+        <%= gravatar_tag @user.email, :html => { class: 'img', alt: 'Profile Picture' } %>
       </div>
       <div class="content">
-        <h4 class="card-title"><%= @user.first_name %> <%= @user.last_name %> | <%= age(@user.date_of_birth)%></h4>
+        <h4 class="card-title">
+          <%= @user.first_name %> <%= @user.last_name %>
+          <% if @user.date_of_birth? %>
+            | <%= age(@user.date_of_birth)%>
+          <% end %>
+        </h4>
         <h6 class="category text-gray"><i class="material-icons">location_on</i>Bristol</h6>
         <hr>
         <div class="col-md-12">

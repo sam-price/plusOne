@@ -5,6 +5,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+
  # Adding enumeration values for gender and postgresql
  # enum gender: {
  #   Male:                   'Male',
