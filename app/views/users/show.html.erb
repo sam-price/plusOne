@@ -1,8 +1,40 @@
+<div class="row">
+  <div class="col-md-8">
+    <div class="card">
+      <div class="card-header" data-background-color="purple">
+        <h4 class="title">Edit Profile</h4>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-4">
+    <div class="card card-profile">
+      <div class="card-avatar">
+        <img src="http://enadcity.org/enadcity/wp-content/uploads/2017/02/profile-pictures.png" alt="" class="img">
+      </div>
+
+      <div class="content">
+        <h4 class="card-title"><%= current_user.first_name %> <%= current_user.last_name %></h6>
+          <p class="card-content">
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi sequi repellat neque laboriosam et hic nobis obcaecati animi quod, impedit totam reiciendis natus velit ipsum itaque eaque dolor porro, beatae.
+          </p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+
+
 <% title 'Profile Page' %>
 
 <% if @user.sports.empty? %>
   <h2>This profile is currently not setup.</h2>
+  <%= link_to 'Add your sports', edit_user_path(current_user) %>
 <% else %>
 <%= @user.first_name %>'s sports are:
 <%= @user.sports.map(&:name).join(', ') %>.
+<br>
+<%= link_to 'Change', edit_user_path(current_user) %>
 <% end %>

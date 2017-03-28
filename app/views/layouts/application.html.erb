@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Title - <%= content_for?(:title) ? yield(:title) : 'The Biggest Online Store on Earth' %></title>
+    <title> <%= content_for?(:title) ? yield(:title) : '- The Fitness Meetup App' %></title>
 
     <meta name="description" content="Digital Media CTP Project">
     <meta name="author" content="Sam Price">
@@ -32,7 +32,7 @@
       <%= yield %>
 
   <% end %>
-  
+
 </body>
 
 </html>
