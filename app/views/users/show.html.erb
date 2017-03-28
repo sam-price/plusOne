@@ -1,6 +1,14 @@
+<% title @user.first_name + ' ' + @user.last_name + ' - Profile' %>
+
 <div class="row">
-  <div class="col-md-12">
-    <button class="btn btn-default">All Profiles</button>
+  <div class="col-md-2">
+    <button class="btn btn-default btn-block"><i class="material-icons">search</i> All Users</button>
+  </div>
+
+<div class="col-md-8"></div>
+
+  <div class="col-md-2">
+
   </div>
 
 </div>
@@ -9,8 +17,10 @@
   <div class="col-md-8 col-md-offset-2">
     <br>
     <div class="card card-profile">
+      <%= link_to '<i class="material-icons">settings</i>'.html_safe, edit_user_registration_path(current_user), class: 'btn btn-white btn-round btn-just-icon floatright' %>
       <div class="card-avatar">
         <%= gravatar_tag @user.email, :html => { class: 'img', alt: 'Profile Picture' } %>
+
       </div>
       <div class="content">
         <h4 class="card-title">
@@ -20,6 +30,7 @@
           <% end %>
         </h4>
         <h6 class="category text-gray"><i class="material-icons">location_on</i>Bristol</h6>
+
         <hr>
         <div class="col-md-12">
           <h6 class="card-content">About Me</h6>
@@ -53,7 +64,7 @@
       </div>
 
       <div class="card-content">
-        <p><%= @user.sports.map(&:name).join(', ') %>.</p>
+        <p>STUFF</p>
       </div>
     </div> <!--End card-->
   </div> <!--End col-->
@@ -77,7 +88,7 @@
 
 
 
-<% title 'Profile Page' %>
+
 
 <% if @user.sports.empty? %>
   <h2>This user has not currently set any sports.</h2>

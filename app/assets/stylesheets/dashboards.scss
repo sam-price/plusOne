@@ -2,7 +2,10 @@
 .navbar {
   padding-top: 10px !important;
 }
-
+.floatright {
+  position: absolute;
+  right: 10px;
+}
 .navbar.navbar-default {
   background-color: #f5f5f5 !important;
   color:#555555 !important;
