@@ -557,8 +557,8 @@ $popover-border-color:                rgba(0,0,0,.2) !default;
 //** Popover fallback border color
 $popover-fallback-border-color:       #ccc !default;
 
-//** Popover title background color
-$popover-title-bg:                    darken($popover-bg, 3%) !default;
+//** Popover mk-title background color
+$popover-mk-title-bg:                    darken($popover-bg, 3%) !default;
 
 //** Popover arrow width
 $popover-arrow-width:                 10px !default;
@@ -603,10 +603,10 @@ $label-link-hover-color:      #fff !default;
 //** Padding applied to the modal body
 $modal-inner-padding:         15px !default;
 
-//** Padding applied to the modal title
-$modal-title-padding:         15px !default;
-//** Modal title line-height
-$modal-title-line-height:     $line-height-base !default;
+//** Padding applied to the modal mk-title
+$modal-mk-title-padding:         15px !default;
+//** Modal mk-title line-height
+$modal-mk-title-line-height:     $line-height-base !default;
 
 //** Background color of modal content area
 $modal-content-bg:                             #fff !default;
@@ -874,7 +874,7 @@ $blockquote-font-size:        ($font-size-base * 1.25) !default;
 $blockquote-border-color:     $gray-lighter !default;
 //** Page header border color
 $page-header-border-color:    $gray-lighter !default;
-//** Width of horizontal description list titles
+//** Width of horizontal description list mk-titles
 $dl-horizontal-offset:        $component-offset-horizontal !default;
 //** Point at which .dl-horizontal becomes horizontal
 $dl-horizontal-breakpoint:    $grid-float-breakpoint !default;

@@ -1,5 +1,6 @@
 module ApplicationHelper
 
+  # Greeting message method
   def greet
     now = Time.now
     today = Date.today.to_time
@@ -28,11 +29,12 @@ module ApplicationHelper
       end
   end
 
-  # https://rubyplus.com/articles/3321-Pretty-Page-Title-in-Rails-5
+  # Simple Method to provide different page titles https://rubyplus.com/articles/3321-Pretty-Page-Title-in-Rails-5
   def title(page_title)
     content_for(:title) { page_title }
   end
 
+  # Work out age from date of birth http://stackoverflow.com/questions/819263/get-persons-age-in-ruby
   def age(dob)
     now = Time.now.utc.to_date
     now.year - dob.year - ((now.month > dob.month || (now.month == dob.month && now.day >= dob.day)) ? 0 : 1)

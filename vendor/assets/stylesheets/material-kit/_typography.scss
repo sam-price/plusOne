@@ -24,9 +24,9 @@ h6, .h6{
     text-transform: uppercase;
 }
 
-.title,
-.mk-card-title,
-.info-title,
+.mk-title,
+.mk-card-mk-title,
+.info-mk-title,
 .footer-brand,
 .footer-big h5,
 .footer-big h4,
@@ -39,7 +39,7 @@ h6, .h6{
     }
 }
 
-h2.title{
+h2.mk-title{
     margin-bottom: $margin-base * 2;
 }
 

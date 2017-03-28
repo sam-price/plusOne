@@ -15,11 +15,11 @@
     @include shadow-16dp();
 }
 
-.title{
+.mk-title{
     font-weight: $font-weight-bold;
     color: $black-color;
 }
-h2.title{
+h2.mk-title{
     margin-bottom: $margin-base * 2;
 }
 .description{
@@ -62,7 +62,7 @@ h2.title{
     margin-top: 80px;
 
     .team-player{
-        .title{
+        .mk-title{
             margin: $margin-base * 2 auto;
         }
         img{
@@ -133,7 +133,7 @@ h2.title{
         h1{
             font-weight: 600;
         }
-        .title{
+        .mk-title{
             color: $white-color;
         }
     }

@@ -10,7 +10,7 @@
     <br>
     <div class="card card-profile">
       <div class="card-avatar">
-        <img src="http://www.american.edu/uploads/profiles/large/chris_palmer_profile_11.jpg" alt="" class="img">
+        <img src="http://www.american.edu/uploads/profiles/large/chris_palmer_profile_11.jpg" alt="Profile Picture" class="img">
       </div>
       <div class="content">
         <h4 class="card-title"><%= @user.first_name %> <%= @user.last_name %> | <%= age(@user.date_of_birth)%></h4>
@@ -25,15 +25,47 @@
 
       </div>
     </div><!--end card profile-->
-    <div class="col-md-6">
+  </div>
+</div>
+
+<div class="row">
+    <div class="col-md-6 col-sm-12">
       <div class="card">
         <div class="card-header" data-background-color="green">
           <h4 class="title">Sports</h4>
         </div>
+
+      <div class="card-content">
+        <p><%= @user.sports.map(&:name).join(', ') %>.</p>
+      </div>
+    </div> <!--End Card-->
+  </div> <!--End col-->
+
+  <div class="col-md-6 col-sm-12">
+    <div class="card">
+      <div class="card-header" data-background-color="blue">
+        <h4 class="title">Goals</h4>
+      </div>
+
+      <div class="card-content">
+        <p><%= @user.sports.map(&:name).join(', ') %>.</p>
+      </div>
+    </div> <!--End card-->
+  </div> <!--End col-->
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header" data-background-color="red">
+        <h4 class="title">Gym</h4>
+      </div>
+
+      <div class="card-content">
+
       </div>
     </div>
-
-  </div><!--end col-->
+  </div>
 </div>
 
 
