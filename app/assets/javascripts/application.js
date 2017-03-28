@@ -22,7 +22,6 @@
 //= require nouislider.min
 //= require bootstrap-notify
 //= require material-dashboard
-//= require gritter
 
 // require turbolinks
 //= require_tree .
