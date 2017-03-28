@@ -7,15 +7,15 @@
 
             <div class="mk-card mk-card-signup">
     <div class="header header-primary text-center">
-      <h4>Sign Up</h4>
+      <h4>Register</h4>
       <div class="social-line">
-        <a href="#pablo" class="btn btn-simple btn-just-icon">
+        <a href="#" class="btn btn-simple btn-just-icon">
           <i class="fa fa-facebook-square"></i>
         </a>
-        <a href="#pablo" class="btn btn-simple btn-just-icon">
+        <a href="#" class="btn btn-simple btn-just-icon">
           <i class="fa fa-twitter"></i>
         </a>
-        <a href="#pablo" class="btn btn-simple btn-just-icon">
+        <a href="#" class="btn btn-simple btn-just-icon">
           <i class="fa fa-google-plus"></i>
         </a>
       </div>
@@ -24,8 +24,8 @@
     <%= content_tag(:div, flash[:error], :id => "flash_error") if flash[:error] %>
     <%= content_tag(:div, flash[:notice], :id => "flash_notice") if flash[:notice] %>
     <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %></div>
-
-    <p class="text-divider">Enter your details below</p>
+<br>
+    <h4 class="text-divider uppercase">Enter your details below</h4>
     <div class="content col-md-10 col-md-offset-1">
 
       <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
@@ -56,10 +56,10 @@
     </div>
 
     <div class="footer text-center">
-      <%= f.button :submit, "Sign up", class: 'btn btn-simple btn-primary btn-lg' %>
-
+      <%= f.button :submit, "Sign up", class: 'btn btn-primary btn-lg btn-block' %>
     </div>
 
+    <p class="text-divider">Already have an account?</p>
     <%= render "devise/shared/links" %>
     <br>
   <% end %>

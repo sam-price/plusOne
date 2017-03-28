@@ -9,8 +9,8 @@
   <div class="header header-info text-center">
     <h4>Sign In</h4>
   </div>
-
-  <p class="text-divider">Enter your details below</p>
+  <br>
+  <h4 class="text-divider uppercase">Enter your details below</h4>
 
   <div class="content col-md-10 col-md-offset-1">
     <!--START SIMPLE FORM-->
@@ -20,7 +20,9 @@
     <%= f.input :password %>
 
 
-    <%= f.button :submit, "Log in", class: 'btn btn-primary btn-block' %>
+    <%= f.button :submit, "Sign In", class: 'btn btn-primary btn-block btn-lg' %>
+
+    <p class="text-divider">Don't have an account?</p>
 
     <%= render "devise/shared/links" %>
     <br>
