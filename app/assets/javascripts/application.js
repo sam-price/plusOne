@@ -19,6 +19,7 @@
 //= require material-kit
 //= require material
 //= require nouislider.min
+//= require bootstrap-notify
 //= require material-dashboard
 
 // require turbolinks

@@ -1,13 +1,13 @@
-.card {
+.mk-card {
 
     display: inline-block;
     position: relative;
     width: 100%;
 
-    .card-height-indicator {
+    .mk-card-height-indicator {
         margin-top: 100%;
     }
-    .card-content {
+    .mk-card-content {
         position: absolute;
         top: 0;
         bottom: 0;
@@ -16,12 +16,12 @@
     }
 
     border-radius: $border-radius-base;
-    color: $mdb-card-body-text;
-    background: $mdb-card-body-background;
+    color: $mdb-mk-card-body-text;
+    background: $mdb-mk-card-body-background;
 
     @include shadow-2dp();
 
-    .card-image {
+    .mk-card-image {
         height: 60%;
         position: relative;
         overflow: hidden;
@@ -32,11 +32,11 @@
             border-top-right-radius: 2px;
             pointer-events: none;
         }
-        .card-image-headline {
+        .mk-card-image-headline {
             position: absolute;
             bottom: 16px;
             left: 18px;
-            color: $mdb-card-image-headline;
+            color: $mdb-mk-card-image-headline;
             font-size: 2em;
         }
     }
@@ -45,12 +45,12 @@
         padding: 15px;
     }
 
-    .card-body {
+    .mk-card-body {
         height: 30%;
         padding: 18px;
     }
 
-    .card-footer {
+    .mk-card-footer {
         height: 10%;
         padding: 18px;
         button, a {
@@ -93,11 +93,11 @@
     }
 }
 
-.card-raised{
+.mk-card-raised{
     @include shadow-big();
 }
 
-.card-signup{
+.mk-card-signup{
     .header{
         @include shadow-big();
         margin-left: 20px;
@@ -137,7 +137,7 @@
     }
 }
 
-.card-nav-tabs{
+.mk-card-nav-tabs{
     margin-top: 45px;
 
     .header{
@@ -148,7 +148,7 @@
     }
 }
 
-.card-plain{
+.mk-card-plain{
     background: transparent;
     box-shadow: none;
 
