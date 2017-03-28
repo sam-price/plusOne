@@ -26,11 +26,6 @@
 // require turbolinks
 //= require_tree .
 
-//$(document).on('turbolinks:load', function() {
-//Array of images which you want to show: Use path you want.
-
-
-
 $(function() {
 $('a[href*="#"]:not([href="#"])').click(function() {
   if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -45,16 +40,6 @@ $('a[href*="#"]:not([href="#"])').click(function() {
   }
 });
 });
-
-//});
-
-//}) // end turbolinks
-//
-//
-// document.addEventListener('turbolinks:load', function() {
-// //   componentHandler.upgradeDom();
-// });
-
 
 demo = {
     initPickColor: function(){

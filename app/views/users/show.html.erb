@@ -1,19 +1,39 @@
 <div class="row">
   <div class="col-md-12">
+    <button class="btn btn-default">All Profiles</button>
+  </div>
+
+</div>
+
+<div class="row">
+  <div class="col-md-12">
     <br>
     <div class="card card-profile">
       <div class="card-avatar">
         <img src="http://www.american.edu/uploads/profiles/large/chris_palmer_profile_11.jpg" alt="" class="img">
       </div>
-
       <div class="content">
-        <h4 class="card-title"><%= @user.first_name %> <%= @user.last_name %></h6>
-          <p class="card-content">
-            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi sequi repellat neque laboriosam et hic nobis obcaecati animi quod, impedit totam reiciendis natus velit ipsum itaque eaque dolor porro, beatae.
-          </p>
+        <h4 class="card-title"><%= @user.first_name %> <%= @user.last_name %> | <%= age(@user.date_of_birth)%></h4>
+        <h6 class="category text-gray"><i class="material-icons">location_on</i>Bristol</h6>
+        <hr>
+        <div class="col-md-12">
+          <h6 class="card-content">About Me</h6>
+            <p class="card-content">
+              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi sequi repellat neque laboriosam et hic nobis obcaecati animi quod, impedit totam reiciendis natus velit ipsum itaque eaque dolor porro, beatae.
+            </p>
+        </div>
+
+      </div>
+    </div><!--end card profile-->
+    <div class="col-md-6">
+      <div class="card">
+        <div class="card-header" data-background-color="green">
+          <h4 class="title">Sports</h4>
+        </div>
       </div>
     </div>
-  </div>
+
+  </div><!--end col-->
 </div>
 
 
@@ -23,7 +43,7 @@
 <% title 'Profile Page' %>
 
 <% if @user.sports.empty? %>
-  <h2>This profile is currently not setup.</h2>
+  <h2>This user has not currently set any sports.</h2>
   <%= link_to 'Add your sports', edit_user_path(current_user) %>
 <% else %>
 <%= @user.first_name %>'s sports are:
