@@ -8,9 +8,9 @@ $(document).ready(function() {
 flashMessage = {
   showNotification: function(from, align){
 
-      icon = "<% if key == 'alert' %>error_outline<% else %>notifications<% end %>"
+      icon = "<% if key == 'alert' %>error_outline<% elsif key == 'notice' %>done<% end %>"
       msg = "<% if key == 'alert' %><br>Ahh! Looks like you will need to try again...<% end %>"
-      type = "<% if key == 'alert' %>danger <%elsif key == 'notice'%>info<% end %>"
+      type = "<% if key == 'alert' %>danger <%elsif key == 'notice'%>success<% end %>"
 
       $.notify({
           icon: icon,

@@ -1,4 +1,9 @@
-.header {
+.header-bg {
   background-image: url('bg2.jpg');
-  transition: background-image 10s linear;
+}
+
+.header {
+  // background-image: url('bg2.jpg');
+  -webkit-transition: background-image 5s linear;
+  transition: background-image 5s linear;
 }
