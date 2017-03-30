@@ -18,17 +18,14 @@
               <%= link_to_active_li '<i class="material-icons">dashboard</i><p>Dashboard</p>'.html_safe, root_path %>
             </li>
             <li>
-              <a href="#">
-                <p>Events</p>
-              </a>
+              <%= link_to_active_li '<i class="material-icons">search</i><p>Find Friend</p>'.html_safe, users_path %>
             </li>
+            <hr>
             <li>
               <%= link_to_active_li '<i class="material-icons">person</i><p>My Profile</p>'.html_safe, user_path(current_user) %>
             </li>
             <li>
-              <a href="#">
-                <p>My Sports</p>
-              </a>
+              <%= link_to_active_li '<i class="material-icons">person</i><p>My Activities</p>'.html_safe, edit_user_path(current_user) %>
             </li>
             <li>
               <a href="#">
