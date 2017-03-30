@@ -1,3 +1,62 @@
+<div class="card card-stats">
+  <div class="card-header show-users">
+    <%= gravatar_tag user.email, size: 175, :html => { class: 'img', alt: 'Profile Picture' } %>
+    <div class="user-name">
+      <!--Added for better UX if there are longer names -->
+      <% if user.first_name.length + user.last_name.length <= 12 %>
+        <h3><%= user.first_name + ' ' + user.last_name %></h4>
+      <% else %>
+        <h4><%= user.first_name + ' ' + user.last_name %></h5>
+      <% end %>
+    </div>
+  </div>
+
+  <div class="card-content user-display">
+  <div class="card-group">
+    <h4 class="inline"><i class="fa fa-calendar" aria-hidden="true"></i> Age:</h4>
+    <h4 class="inline">
+      <% if user.date_of_birth? %>
+        <%= age(user.date_of_birth)%>
+      <% else %>
+        Unknown
+      <% end %>
+    </h4>
+  </div>
+
+  <div class="card-group">
+    <h4 class="inline"><i class="fa fa-location-arrow" aria-hidden="true"></i> Location:</h4>
+    <h4 class="inline">
+      Bristol
+    </h4>
+  </div>
+
+    <h6 class="inline"><strong>Enjoys: </strong></h6>
+      <p class="inline">
+        <% if user.sports.any? %>
+          <%= user.sports.map(&:name).join(', ') %>.
+        <% else %>
+          This user hasn't set any sports.
+        <% end %>
+      </p>
+<br>
+      <h6 class="inline"><strong>Goals:</strong></h6>
+        <p class="inline">
+          <% if user.goals.any? %>
+            <%= user.goals.map(&:name).join(', ') %>.
+          <% else %>
+            <%= user.first_name %> hasn't set any goals.
+          <% end %>
+        </p>
+  </div>
+
+  <div class="card-footer">
+    <div class="stats">
+      <%= link_to 'View Profile', user_path(user.id), class: 'btn btn-info' %>
+    </div>
+  </div>
+</div>
+
+
 <li>
   <%= user.first_name + ' ' + user.last_name %>
     <% if user.sports.any? %>

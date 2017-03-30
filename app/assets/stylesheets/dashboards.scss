@@ -46,3 +46,37 @@
 .welcome-card-wide > .mdl-card__menu {
   color: #fff;
 }
+
+////////
+
+.card .show-users {
+  background-color: #fff !important;
+  padding: 8px;
+  max-width: 175px;
+}
+
+.card-stats .card-content {
+  text-align:left;
+}
+.user-display i {
+  color: #777;
+}
+.user-display .inline {
+  display:inline;
+}
+
+.user-display table {
+  padding:5px;
+  font-size: 17px;
+}
+.user-display table td {
+  padding-left: 4px;
+}
+.user-display table.icon {
+  padding:0px;
+  text-align: center;
+}
+
+.card-group {
+  padding: 5px 0 4px 0;
+}
