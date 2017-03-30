@@ -1,4 +1,3 @@
-
 <% title 'Profile Setup' %>
 
 <%= form_for @user do |f| %>
@@ -25,6 +24,11 @@
       <% end %>
       <div class="control__indicator"></div>-->
 
+  <% end %>
+
+  <% @goals.each do |goal| %>
+    <%= check_box_tag "user[goal_ids][]", goal.id, f.object.goals.include?(goal) %>
+    <%= goal.name %>
   <% end %>
 
   <%= f.button :submit, class: 'btn btn-default' %>

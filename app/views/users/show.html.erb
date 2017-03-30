@@ -68,7 +68,7 @@
       </div>
 
       <div class="card-content">
-        <p>STUFF</p>
+        <p><%= @user.goals.map(&:name).join(', ') %>.</p>
       </div>
     </div> <!--End card-->
   </div> <!--End col-->

@@ -3,6 +3,8 @@ class User < ApplicationRecord
   has_and_belongs_to_many :goals
   has_and_belongs_to_many :gyms
 
+  accepts_nested_attributes_for :sports
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,

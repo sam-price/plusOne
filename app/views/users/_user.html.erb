@@ -1,0 +1,24 @@
+<li>
+  <%= user.first_name + ' ' + user.last_name %>
+    <% if user.sports.any? %>
+      Sports:
+      <ul>
+        <% user.sports.each do |sport| %>
+          <li>
+            <%= sport.name %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+
+    <% if user.goals.any? %>
+      Goals:
+      <ul>
+        <% user.goals.each do |goal| %>
+          <li>
+            <%= goal.name %>
+          </li>
+        <% end %>
+      </ul>
+    <% end %>
+</li>
