@@ -18,10 +18,10 @@ class User < ApplicationRecord
  #   Other:                  'Other'
  # }
 
-  include Storext.model
-  # 'settings' matches my database column
-  store_attributes :settings do
-    public Boolean, default: true
-    setup Boolean, default: false
-  end
+  # include Storext.model
+  # # 'settings' matches my database column
+  # store_attributes :settings do
+  #   public Boolean, default: true
+  #   setup Boolean, default: false
+  # end
 end
