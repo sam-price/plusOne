@@ -41,6 +41,13 @@
   </div>
 
   <div class="col-md-4"><br><br>
+    Friends:
+    <% @user.friendships.each do |f| %>
+      <% if f.state == "active" %>
+        <%= f.friend.email %>
+        <%= gravatar_tag f.friend.email, :html => { class: 'img', alt: 'Profile Picture' } %>
+        <% end %>
+    <% end %>
     <button class="btn btn-default btn-block"><i class="material-icons">search</i> All Users</button>
     <button class="btn btn-default btn-block"><i class="material-icons">search</i> All Users</button>
     <button class="btn btn-default btn-block"><i class="material-icons">search</i> All Users</button>
