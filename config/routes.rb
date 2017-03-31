@@ -2,6 +2,11 @@ Rails.application.routes.draw do
   devise_for :users
   resources :users
   resource :dashboards
+  resources :friendships, only: [:create, :destroy, :accept] do
+    member do
+      put :accept
+    end
+  end
 
   resources :conversations, only: [:create] do
     member do
