@@ -13,7 +13,7 @@ class User < ApplicationRecord
   def self.search(search)
    if search
      #eager_load(:sports).joins(:sports).where("sports.name ILIKE ?", "%#{search}%")
-     joins(:sports).where("first_name ILIKE :search OR sports.name ILIKE :search", search: "%#{search}%")
+     joins(:sports).where("first_name ILIKE :search OR sports.name ILIKE :search", search: "%#{search}%").distinct
    else
      #all.eager_load(:sports)
      all
