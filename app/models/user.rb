@@ -10,6 +10,16 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+  def self.search(search)
+   if search
+     #eager_load(:sports).joins(:sports).where("sports.name ILIKE ?", "%#{search}%")
+     joins(:sports).where("first_name ILIKE :search OR sports.name ILIKE :search", search: "%#{search}%")
+   else
+     #all.eager_load(:sports)
+     all
+   end
+  end
+
 
  # Adding enumeration values for gender and postgresql
  # enum gender: {
