@@ -16,10 +16,24 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
 
+###################
+## Friendship Types
+###################
   def request_friendship(user_2)
  	  self.friendships.create(friend: user_2)
   end
 
+  def pending_friend_requests_to
+    self.friendships.where(state: 'pending')
+  end
+
+  def active_friends
+    self.friendships.where(state: 'active').map(&:friend) + self.inverse_friendships.where(state: 'active').map(&:user)
+  end
+
+###################
+## Search Method
+###################
   def self.search(search)
    if search
      #eager_load(:sports).joins(:sports).where("sports.name ILIKE ?", "%#{search}%")
