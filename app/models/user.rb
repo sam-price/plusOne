@@ -3,6 +3,9 @@ class User < ApplicationRecord
   has_and_belongs_to_many :goals
   has_and_belongs_to_many :gyms
 
+  has_many :messages
+  has_many :conversations, foreign_key: :sender_id
+
   accepts_nested_attributes_for :sports
 
   # Include default devise modules. Others available are:

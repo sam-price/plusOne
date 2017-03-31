@@ -26,6 +26,9 @@
 // require turbolinks
 //= require_tree .
 
+///////////////////////
+/// MESSAGING  JS
+///////////////////////
 $(function() {
 $('a[href*="#"]:not([href="#"])').click(function() {
   if (location.pathname.replace(/^\//,'') == this.pathname.replace(/^\//,'') && location.hostname == this.hostname) {
@@ -40,6 +43,26 @@ $('a[href*="#"]:not([href="#"])').click(function() {
   }
 });
 });
+
+///////////////////////
+/// SMOOTH SCROLL - FRONT PAGE
+///////////////////////
+
+(function() {
+  $(document).on('click', '.toggle-window', function(e) {
+    e.preventDefault();
+    var panel = $(this).parent().parent();
+    var messages_list = panel.find('.messages-list');
+
+    panel.find('.panel-body').toggle();
+    panel.attr('class', 'panel panel-default');
+
+    if (panel.find('.panel-body').is(':visible')) {
+      var height = messages_list[0].scrollHeight;
+      messages_list.scrollTop(height);
+    }
+  });
+})();
 
 demo = {
     initPickColor: function(){

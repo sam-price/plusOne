@@ -3,6 +3,15 @@ Rails.application.routes.draw do
   resources :users
   resource :dashboards
 
+  resources :conversations, only: [:create] do
+    member do
+      post :close
+    end
+    resources :messages, only: [:create]
+  end
+
+
+
   authenticated :user do
     root to: "dashboards#index"
   end
