@@ -27,12 +27,31 @@ class User < ApplicationRecord
     self.friendships.where(state: 'pending')
   end
 
+  def pending_friend_requests_from
+    self.inverse_friendships.where(state: 'pending')
+  end
+
   def active_friends
     self.friendships.where(state: 'active').map(&:friend) + self.inverse_friendships.where(state: 'active').map(&:user)
   end
 
+  def friendship_status(user_2)
+    friendship = Friendship.where(user_id: [self.id, user_2.id], friend_id: [self.id, user_2.id])
+    unless friendship.any?
+      return 'not_friends'
+    else
+      if friendship.first.state == 'active'
+        return 'friends'
+      elsif friendship.first.user == self
+        return 'pending'
+      else
+        return 'requested'
+      end
+    end
+  end
+
 ###################
-## Search Method
+## Basic Search Method
 ###################
   def self.search(search)
    if search
