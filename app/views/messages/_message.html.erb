@@ -1,8 +1,7 @@
 <li>
   <div class="row">
     <div class="<%= user.id == message.user_id ? 'message-sent' : 'message-received' %>">
-      <%= user.first_name %>
-      <%= message.user.email %>
+      <%= message.body %>
     </div>
   </div>
 </li>

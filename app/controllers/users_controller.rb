@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
   def index
-    @users = User.search(params[:search]).paginate(:page => params[:page], :per_page => 5)
+    @users = User.all.where.not(id: current_user).search(params[:search]).paginate(:page => params[:page], :per_page => 5)
   end
 
   def edit
