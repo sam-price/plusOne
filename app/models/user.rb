@@ -42,10 +42,12 @@ class User < ApplicationRecord
     else
       if friendship.first.state == 'active'
         return 'friends'
-      elsif friendship.first.user == self
-        return 'pending'
       else
-        return 'requested'
+        if friendship.first.user == self
+            return 'pending'
+          else
+            return 'requested'
+        end
       end
     end
   end
