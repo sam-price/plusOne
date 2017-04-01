@@ -35,9 +35,9 @@
       </div>
       <div class="panel-body">
         <ul>
-          <% @friends.each do |user| %>
+          <% @users.each do |user| %>
           <li>
-            <%= link_to user.friend.email, conversations_path(user_id: user), remote: true, method: :post %>
+            <%= link_to user.email, conversations_path(user_id: user), remote: true, method: :post %>
           </li>
           <% end %>
         </ul>

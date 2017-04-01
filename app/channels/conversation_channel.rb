@@ -1,4 +1,5 @@
-# Be sure to restart your server when you modify this file. Action Cable runs in a loop that does not support auto reloading.
+#  Action Cable runs in a loop that does not support auto
+#  reloading so need to restart server with modifications.
 class ConversationChannel < ApplicationCable::Channel
   def subscribed
     stream_from "conversations-#{current_user.id}"
@@ -13,9 +14,6 @@ class ConversationChannel < ApplicationCable::Channel
       hash[el.values.first] = el.values.last
     end
 
-    ActionCable.server.broadcast(
-      "conversations-#{current_user.id}",
-      message: message_params
-    )
+    Message.create(message_params)
   end
 end
