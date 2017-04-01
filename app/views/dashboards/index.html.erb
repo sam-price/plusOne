@@ -37,7 +37,11 @@
         <ul>
           <% @friends.each do |user| %>
           <li>
+            <% if user_signed_in? %>
+              Active:
+            <% end %>
             <%= link_to user.email, conversations_path(user_id: user), remote: true, method: :post %>
+
           </li>
           <% end %>
         </ul>
