@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  belongs_to :city
   has_and_belongs_to_many :sports
   has_and_belongs_to_many :goals
   has_and_belongs_to_many :gyms
@@ -10,6 +11,7 @@ class User < ApplicationRecord
   has_many :conversations, foreign_key: :sender_id
 
   accepts_nested_attributes_for :sports
+  accepts_nested_attributes_for :city
 
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
