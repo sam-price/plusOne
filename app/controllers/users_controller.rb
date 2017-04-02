@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
   def index
-if params[:search].present?
-  @users = User.perform_search(params[:search]).paginate(:page => params[:page], :per_page => 5)
-else
-  @users = User.all.paginate(:page => params[:page], :per_page => 5)
-end
+    if params[:search].present?
+      @users = User.where.not(id: current_user).perform_search(params[:search]).paginate(:page => params[:page], :per_page => 5)
+    else
+      @users = User.all.where.not(id: current_user).paginate(:page => params[:page], :per_page => 5)
+    end
     #@users = User.all.where.not(id: current_user).search(params[:search]).paginate(:page => params[:page], :per_page => 5)
   end
 

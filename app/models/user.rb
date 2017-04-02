@@ -13,10 +13,10 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :sports
   accepts_nested_attributes_for :city
 
+# Using Postgres full-text search for searching across multiple columns
+# in this example covering my first_name & last_name columns in one search
   include PgSearch
-
   pg_search_scope :quick_search, against: [:first_name, :last_name]
-
   scope :sorted, ->{ order(first_name: :asc) }
 
   def self.perform_search(keyword)
