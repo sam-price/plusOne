@@ -5,6 +5,7 @@ class UsersController < ApplicationController
     else
       @users = User.all.where.not(id: current_user).paginate(:page => params[:page], :per_page => 5)
     end
+
     #@users = User.all.where.not(id: current_user).search(params[:search]).paginate(:page => params[:page], :per_page => 5)
   end
 
