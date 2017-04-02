@@ -13,6 +13,20 @@ class User < ApplicationRecord
   accepts_nested_attributes_for :sports
   accepts_nested_attributes_for :city
 
+  include PgSearch
+
+  pg_search_scope :quick_search, against: [:first_name, :last_name]
+
+  scope :sorted, ->{ order(first_name: :asc) }
+
+  def self.perform_search(keyword)
+    if keyword.present?
+      User.quick_search(keyword)
+    else
+      User.all
+    end.sorted
+  end
+
   # Include default devise modules. Others available are:
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
@@ -61,15 +75,15 @@ class User < ApplicationRecord
 ###################
 ## Basic Search Method
 ###################
-  def self.search(search)
-   if search
-     #eager_load(:sports).joins(:sports).where("sports.name ILIKE ?", "%#{search}%")
-     joins(:sports).where("first_name ILIKE :search OR sports.name ILIKE :search", search: "%#{search}%").distinct
-   else
-     #all.eager_load(:sports)
-     all
-   end
-  end
+  # def self.search(search)
+  #  if search
+  #    #eager_load(:sports).joins(:sports).where("sports.name ILIKE ?", "%#{search}%")
+  #    joins(:sports).where("first_name ILIKE :search OR sports.name ILIKE :search", search: "%#{search}%").distinct
+  #  else
+  #    #all.eager_load(:sports)
+  #    all
+  #  end
+  # end
 
 
  # Adding enumeration values for gender and postgresql
