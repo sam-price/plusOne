@@ -15,11 +15,6 @@
       <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
 
       <%= f.input :city_id, collection: City.all.order(name: :asc), label: "City" %>
-      <%= f.simple_fields_for :city do |c| %>
-      <div class="row">
-      <%= c.input :city_id, collection: City.all.order(name: :asc), label_method: :name, value_method: :id, label: "City", include_blank: false, selected: @user.city_id %>
-        </div>
-      <% end %>
 
       <div class="row">
         <div class="col-md-3">
