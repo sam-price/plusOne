@@ -1,5 +1,8 @@
 class User < ApplicationRecord
   belongs_to :city
+  belongs_to :workout
+  belongs_to :fitness_level
+
   has_and_belongs_to_many :sports
   has_and_belongs_to_many :goals
   has_and_belongs_to_many :gyms
@@ -10,8 +13,8 @@ class User < ApplicationRecord
   has_many :messages
   has_many :conversations, foreign_key: :sender_id
 
-  accepts_nested_attributes_for :sports
-  accepts_nested_attributes_for :city
+  #accepts_nested_attributes_for :sports
+  #accepts_nested_attributes_for :city
 
 # Using Postgres full-text search for searching across multiple columns
 # in this example covering my first_name & last_name columns in one search
@@ -19,7 +22,7 @@ class User < ApplicationRecord
   pg_search_scope :quick_search, against: [:first_name, :last_name], using: {tsearch: {dictionary: "english"}},
   associated_against: {sports: :name, goals: :name, }
   scope :sorted, ->{ order(first_name: :asc) }
-  
+
 
   def self.perform_search(keyword)
     if keyword.present?
