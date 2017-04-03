@@ -1,0 +1,2 @@
+class FitnessLevel < ApplicationRecord
+end
