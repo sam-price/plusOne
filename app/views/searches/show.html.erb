@@ -1,0 +1,22 @@
+<h1>Results:</h1>
+<% if @search.search_users.empty? %>
+  Nothing
+<% else %>
+
+  <%= @search.search_users.each do |user| %>
+    <%= user.first_name + ' ' + user.last_name %>
+<br>
+    <% if user.sports.any? %>
+      <%= user.sports.map(&:name).join(', ') %>.
+    <% else %>
+      This user hasn't set any sports.
+    <% end %>
+<br>
+    <% if user.goals.any? %>
+      <%= user.goals.map(&:name).join(', ') %>.
+    <% else %>
+      <%= user.first_name %> hasn't set any goals.
+    <% end %>
+<br>
+  <% end %>
+<% end %>

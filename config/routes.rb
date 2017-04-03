@@ -1,9 +1,10 @@
 Rails.application.routes.draw do
   devise_for :users
   resources :users
-  resource :dashboards
+  resource :dashboards, only: [:index]
+  resources :searches
 
-# Limiting resources for the friendships. Don't want routes to get clogged  
+# Limiting resources for the friendships. Don't want routes to get clogged
   resources :friendships, only: [:create, :destroy, :accept] do
     member do
       put :accept
@@ -17,8 +18,6 @@ Rails.application.routes.draw do
     end
     resources :messages, only: [:create]
   end
-
-
 
   authenticated :user do
     root to: "dashboards#index"
