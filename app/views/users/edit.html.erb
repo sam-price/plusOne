@@ -1,35 +1,63 @@
 <% title 'Profile Setup' %>
 
-<%= form_for @user do |f| %>
-  <% @sports.each do |sport| %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header" data-background-color="purple">
+        <h4 class="title">Profile Setup</h4>
+        <p class="category">Setup your profile settings to make it easier for others to find you.</p>
+      </div>
+      <%= form_for @user do |f| %>
+        <% @sports.each do |sport| %>
+          <div class="col-md-3">
+            <div class="checkbox">
+              <label for="">
+                <%= check_box_tag "user[sport_ids][]", sport.id, f.object.sports.include?(sport) %>
 
-  <div class="checkbox">
-    <label>
-      <%= check_box_tag "user[sport_ids][]", sport.id, f.object.sports.include?(sport) %>
+              </label>
+              <%= sport.name %>
+            </div>
+          </div>
 
-      <%= image_tag image_url("https://secure.ymcanyc.org/page/-/uploads/sub-class-thumbs/running-thumbnail.png")%>
-    </label>
-    <%= sport.name %>
-  </div>
-
-      <!-- See if I can put this in its own method - logic will make the view messy
-          Method needs to go into appllication_helper.rb
-      -->
-      <!-- <% if @weightlifting == sport.name %>
-        <%= image_tag image_url("w1.png"), class: "off" %>
-        <%= image_tag image_url("w2.png"), class: "on" %>
-      <% elsif @running.name == sport.name %>
-        <%= image_tag image_url("https://secure.ymcanyc.org/page/-/uploads/sub-class-thumbs/running-thumbnail.png"), class: "off" %>
-        <%= image_tag image_url("w2.png"), class: "on" %>
       <% end %>
-      <div class="control__indicator"></div>-->
+    </div> <!-- end card-->
+  </div> <!-- end col-->
+</div> <!-- end row-->
+      <div class="card-content">
+        <%= form_for @user do |f| %>
+          <% @sports.each do |sport| %>
+          <div class="col-md-3">
+          <div class="checkbox">
+            <div class="icon">
+              <label>
+                <%= check_box_tag "user[sport_ids][]", sport.id, f.object.sports.include?(sport) %>
+                  <div class="icon-box">
+                    <%# if sport.name == 'Bodybuilding' %>
+                      <%= image_tag image_url("icons/013-weightlifting-2") %>
+                    <%# end %>
+                  </div>
+              </label>
+            <h6><%= sport.name %></h6>
 
-  <% end %>
+          </div> <!-- end icon -->
+        </div> <!--end checkbox-->
+        </div>
+          <% end %>
 
-  <% @goals.each do |goal| %>
-    <%= check_box_tag "user[goal_ids][]", goal.id, f.object.goals.include?(goal) %>
-    <%= goal.name %>
-  <% end %>
 
-  <%= f.button :submit, class: 'btn btn-default' %>
-<% end %>
+
+
+
+          <% @goals.each do |goal| %>
+          <div class="checkbox">
+            <%= check_box_tag "user[goal_ids][]", goal.id, f.object.goals.include?(goal) %>
+            <%= goal.name %>
+          </div>
+          <% end %>
+          <%= f.button :submit, class: 'btn btn-default' %>
+        <% end %>
+
+      </div> <!-- end card-content-->
+    </div> <!-- end card-->
+  </div> <!-- end col-md-12 -->
+</div> <!-- end row-->

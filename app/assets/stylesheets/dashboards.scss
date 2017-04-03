@@ -24,6 +24,7 @@
   text-align: center;
   margin: 10px auto;
 }
+
 // Index Card styling
 .w-card-center {
     display: flex;           /* establish flex container */
@@ -79,6 +80,8 @@
   padding: 5px 0 4px 0;
 }
 
+
+// Messages styling
 ul {
   list-style: none;
 }
@@ -107,8 +110,6 @@ ul {
   overflow-y: auto;
   overflow-x: hidden;
 }
-
-
 .message-sent {
   position: relative;
   background-color: #D9EDF7;
@@ -117,8 +118,6 @@ ul {
   padding: 10px;
   float: right;
 }
-
-
 .message-received {
   background-color: #F1F0F0;
   border-color: #EEEEEE;
