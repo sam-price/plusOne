@@ -1,4 +1,4 @@
-<%= form_for @user do |f| %>
+<%= simple_form_for @user do |f| %>
 <div class="heading">
   <h3>What do you like to do at the <span class="gym-tag"><%= image_tag image_url('icons/gym-sign.png') %></span> ?</h3>
   <h6>Select one or more</h6>
@@ -52,8 +52,6 @@
         <% end %>
 
       </div>
-
-
     </label>
     <h4><%= sport.name %></h4>
   </div>
@@ -65,7 +63,7 @@
 
 <div class="row">
 <div class="heading">
-  <h3>What are your Goals?</h3>
+  <h3>What about your Goals?</h3>
   <h6>Select one or more</h6>
 </div>
 
@@ -73,15 +71,86 @@
   <% @goals.each do |goal| %>
   <div class="col-md-3 no-padding">
     <div class="checkbox">
-      <label>
+      <label class="black">
         <%= check_box_tag "user[goal_ids][]", goal.id, f.object.goals.include?(goal) %>
-        <%= goal.name %>
+        <span class="black"><%= goal.name %></span>
+
       </label>
     </div>
     </div>
-  <% end %>
-</div>
+  <% end %> <!-- end goals loop -->
+</div> <!-- end col-md-12-->
+</div> <!-- end row-->
 
+<div class="row">
+  <div class="heading">
+    <h3>When do you usually workout?</h3>
+    <h6>Select one</h6>
+  </div>
+
+<% @moments.each do |moment| %>
+<div class="col-md-4">
+  <div class="radio hidden-checkbox">
+    <label class="zero-padding">
+      <%= radio_button_tag 'user[moment_id]', :moment_id %>
+
+    <div class="sport-box">
+      <% case moment.name
+      when 'Morning'%>
+        <%= image_tag image_url("icons/am-2.png") %>
+
+      <% when 'Daytime' %>
+        <%= image_tag image_url("icons/sun.png") %>
+
+      <% when 'Evening' %>
+        <%= image_tag image_url("icons/pm-2.png") %>
+
+      <% end %>
+
+      </div>
+    </label>
+    <h4><%= moment.name %></h4>
+
+  </div>
 
 </div>
+<% end %>  <!-- end moments-->
+</div><!--end row-->
+
+<div class="row">
+  <div class="heading">
+    <h3>When do you usually workout?</h3>
+    <h6>Select one</h6>
+  </div>
+
+<% @workouts.each do |workout| %>
+<div class="col-md-4">
+  <div class="radio hidden-checkbox">
+    <label class="zero-padding">
+      <%= radio_button_tag 'user[workout_id]', :workout_id %>
+
+    <div class="sport-box">
+      <% case workout.name
+      when '1-2'%>
+        <%= image_tag image_url("icons/1-2.png") %>
+
+      <% when '3-4' %>
+        <%= image_tag image_url("icons/3-4.png") %>
+
+      <% when '5-7' %>
+        <%= image_tag image_url("icons/5-7.png") %>
+
+      <% end %>
+
+      </div>
+    </label>
+
+  </div>
+
+</div>
+<% end %>  <!-- end workouts-->
+</div><!--end row-->
+
+<%= f.button :submit, 'Save Changes', class: 'btn btn-success' %>
+
 <% end %>

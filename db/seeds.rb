@@ -68,11 +68,13 @@ gyms = Gym.create([
 ### FITNESS LEVELS
 ######################
 fitness_levels = FitnessLevel.create([
-  { skill: 'Beginner' }, { skill: 'Intermediate' }, { skill: 'Advanced' },
-  { skill: 'Elite' }
+  { name: 'Beginner' }, { name: 'Intermediate' }, { name: 'Advanced' },
+  { name: 'Elite' }
   ])
 
 ######################
 ### WORKOUTS
 ######################
-workouts = Workout.create([ { amount: '1-2' }, { amount: '3-4'}, { amount: '5-7' } ])
+workouts = Workout.create([ { name: '1-2' }, { name: '3-4'}, { name: '5-7' } ])
+
+times = Moment.create([ { name: "Morning" }, { name: 'Daytime' }, { name: 'Evening' } ])

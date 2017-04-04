@@ -2,6 +2,7 @@ class User < ApplicationRecord
   belongs_to :city
   belongs_to :workout
   belongs_to :fitness_level
+  belongs_to :moment
 
   has_and_belongs_to_many :sports
   has_and_belongs_to_many :goals

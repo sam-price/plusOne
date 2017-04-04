@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170403205058) do
+ActiveRecord::Schema.define(version: 20170404181652) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -30,7 +30,7 @@ ActiveRecord::Schema.define(version: 20170403205058) do
   end
 
   create_table "fitness_levels", force: :cascade do |t|
-    t.string   "skill"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -78,10 +78,17 @@ ActiveRecord::Schema.define(version: 20170403205058) do
     t.index ["user_id"], name: "index_messages_on_user_id", using: :btree
   end
 
+  create_table "moments", force: :cascade do |t|
+    t.string   "name"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "searches", force: :cascade do |t|
     t.string   "sports"
     t.string   "goals"
     t.string   "gyms"
+    t.string   "city"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string   "cities"
@@ -118,14 +125,20 @@ ActiveRecord::Schema.define(version: 20170403205058) do
     t.date     "date_of_birth"
     t.integer  "city_id"
     t.text     "bio"
+    t.integer  "workout_id"
+    t.integer  "fitness_level_id"
+    t.integer  "moment_id"
     t.index ["city_id"], name: "index_users_on_city_id", using: :btree
     t.index ["email"], name: "index_users_on_email", unique: true, using: :btree
+    t.index ["fitness_level_id"], name: "index_users_on_fitness_level_id", using: :btree
+    t.index ["moment_id"], name: "index_users_on_moment_id", using: :btree
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
     t.index ["settings"], name: "index_users_on_settings", using: :gin
+    t.index ["workout_id"], name: "index_users_on_workout_id", using: :btree
   end
 
   create_table "workouts", force: :cascade do |t|
-    t.string   "amount"
+    t.string   "name"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
@@ -134,4 +147,7 @@ ActiveRecord::Schema.define(version: 20170403205058) do
   add_foreign_key "messages", "conversations"
   add_foreign_key "messages", "users"
   add_foreign_key "users", "cities"
+  add_foreign_key "users", "fitness_levels"
+  add_foreign_key "users", "moments"
+  add_foreign_key "users", "workouts"
 end

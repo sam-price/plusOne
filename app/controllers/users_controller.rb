@@ -26,10 +26,9 @@ class UsersController < ApplicationController
 
     @sports = Sport.all.order(name: :asc)
     @goals = Goal.all.order(name: :asc)
+    @workouts = Workout.all.order(:name)
+    @moments = Moment.all
 
-    # Needs sorting into it's own method - don't clutter up the controller
-    @weightlifting = Sport.find_by_name('Weightlifting')
-    @running = Sport.find_by_name('Running')
   end
 
   def update
@@ -50,5 +49,6 @@ class UsersController < ApplicationController
 
   def user_params
     params.require(:user).permit(sport_ids: [], goal_ids: [])
+    params.require(:user).permit(:workout_id, :moment_id)
   end
 end
