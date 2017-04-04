@@ -18,14 +18,44 @@
   //flex-direction:row;
   //justify-content: space-between;
 }
+.hidden-checkbox {
+  text-align: center;
+}
 
+.hidden-checkbox span {
+  visibility: hidden;
+}
+
+.heading {
+  margin-top:20px;
+  text-align: center;
+}
+
+.gym-tag img {
+  position: relative;
+  top:-13px;
+  width: 64px;
+}
+
+.goal-tag img {
+  width: 32px;
+}
+
+.no-padding {
+  padding-left:5% !important;
+}
 .sport-box {
+  max-width: 128px;
   margin: 0 auto;
   box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
     //margin: -20px 15px 0;
     border-radius: 3px;
     padding: 15px;
     background-color: #fff;
+}
+
+.sport-box img {
+
 }
 
 input:checked ~ .sport-box {

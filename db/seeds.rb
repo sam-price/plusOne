@@ -29,11 +29,10 @@ users = User.create([
 ### SPORTS
 ######################
 sports = Sport.create([
-  { name: 'Cycling' }, { name: 'Running' }, { name: 'Swimming' },
-  { name: 'Tennis' }, { name: 'Football' }, { name: 'Rugby' }, { name: 'Climbing' },
-  { name: 'Hockey' }, { name: 'Gymnastics' }, { name: 'Martial Arts' }, { name: 'Squash' },
-  { name: 'Walking' }, { name: 'Yoga' }, { name: 'Olympic Weightlifting' }, { name: 'Bodybuilding' },
-  { name: 'Powerlifting' }, { name: 'Going to the Gym' }, { name: 'Calisthenics' }
+  { name: 'Cycling' }, { name: 'Running' }, { name: 'Basketball' }, { name: 'Kettlebells' },
+  { name: 'Gymnastics' }, { name: 'Yoga' }, { name: 'Weightlifting' },
+  { name: 'Bodybuilding' }, { name: 'Going to the Gym' }, { name: 'Calisthenics' }, { name: 'Conditioning'},
+  { name: 'Boxing' }
   ])
 
 ######################

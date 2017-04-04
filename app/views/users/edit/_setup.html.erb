@@ -1,0 +1,87 @@
+<%= form_for @user do |f| %>
+<div class="heading">
+  <h3>What do you like to do at the <span class="gym-tag"><%= image_tag image_url('icons/gym-sign.png') %></span> ?</h3>
+  <h6>Select one or more</h6>
+</div>
+
+<div class="row">
+<% @sports.each do |sport| %>
+<div class="col-md-2 col-sm-4">
+  <div class="checkbox hidden-checkbox">
+    <label>
+      <%= check_box_tag "user[sport_ids][]", sport.id, f.object.sports.include?(sport) %>
+      <div class="sport-box">
+
+        <% case sport.name
+        when 'Basketball'%>
+          <%= image_tag image_url("icons/basketball.png") %>
+
+        <% when 'Bodybuilding' %>
+          <%= image_tag image_url("icons/bodybuilding.png") %>
+
+        <% when 'Boxing' %>
+          <%= image_tag image_url("icons/boxing.png") %>
+
+        <% when 'Calisthenics' %>
+          <%= image_tag image_url("icons/calisthenics.png") %>
+
+        <% when 'Cycling' %>
+          <%= image_tag image_url("icons/cycling.png") %>
+
+        <% when 'Conditioning' %>
+          <%= image_tag image_url("icons/conditioning.png") %>
+
+        <% when 'Going to the Gym' %>
+          <%= image_tag image_url("icons/gym.png") %>
+
+        <% when 'Gymnastics' %>
+          <%= image_tag image_url("icons/gymnastics.png") %>
+
+        <% when 'Kettlebells' %>
+          <%= image_tag image_url("icons/kettlebells.png") %>
+
+        <% when 'Running' %>
+          <%= image_tag image_url("icons/running.png") %>
+
+        <% when 'Weightlifting' %>
+          <%= image_tag image_url("icons/weightlifting.png") %>
+
+        <% when 'Yoga' %>
+          <%= image_tag image_url("icons/yoga.png") %>
+
+        <% end %>
+
+      </div>
+
+
+    </label>
+    <h4><%= sport.name %></h4>
+  </div>
+
+</div> <!-- end col-md-2 -->
+<% end %> <!--end sports loop-->
+</div> <!-- end row -->
+
+
+<div class="row">
+<div class="heading">
+  <h3>What are your Goals?</h3>
+  <h6>Select one or more</h6>
+</div>
+
+<div class="col-md-12">
+  <% @goals.each do |goal| %>
+  <div class="col-md-3 no-padding">
+    <div class="checkbox">
+      <label>
+        <%= check_box_tag "user[goal_ids][]", goal.id, f.object.goals.include?(goal) %>
+        <%= goal.name %>
+      </label>
+    </div>
+    </div>
+  <% end %>
+</div>
+
+
+</div>
+<% end %>

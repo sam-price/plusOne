@@ -15,6 +15,7 @@
       <%= content_tag(:div, flash[:alert], :id => "flash_alert") if flash[:alert] %>
 
       <%= f.input :city_id, collection: City.all.order(name: :asc), label: "City" %>
+      <%= f.association :city %>
 
       <div class="row">
         <div class="col-md-3">

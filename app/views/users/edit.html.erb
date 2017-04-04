@@ -8,58 +8,21 @@
       </div> <!-- end card header -->
 
       <div class="card-content">
-        <%= form_for @user do |f| %>
-          <% @sports.each do |sport| %>
-          <div class="col-md-2">
 
-            <div class="checkbox">
-              <label>
-                <%= check_box_tag "user[sport_ids][]", sport.id, f.object.sports.include?(sport) %>
-                <div class="sport-box">
-                  <%# if sport.name == 'Bodybuilding' %>
-                  <%= image_tag image_url("icons/004-athlete-1.png") %>
-
-                  <%# end %>
-
-                </div>
-              </label>
-              <h6><%= sport.name %></h6>
-            </div>
-
-          </div>
-          <% end %>
-        <% end %>
+          <%= render 'users/edit/setup'%>
 
       </div>
     </div>
   </div>
 </div>
-<%= form_for @user do |f| %>
-  <% @sports.each do |sport| %>
+<%= simple_form_for @user do |f| %>
+<%= f.association :sports, as: :check_boxes %>
+<%= f.association :goals, as: :check_boxes %>
+<%= f.button :submit, class: 'btn btn-default' %>
+<% end %>
 
-  <div class="checkbox">
-    <label>
-      <%= check_box_tag "user[sport_ids][]", sport.id, f.object.sports.include?(sport) %>
 
-      <%= image_tag image_url("https://secure.ymcanyc.org/page/-/uploads/sub-class-thumbs/running-thumbnail.png")%>
-    </label>
-    <%= sport.name %>
-  </div>
-
-      <!-- See if I can put this in its own method - logic will make the view messy
-          Method needs to go into appllication_helper.rb
-      -->
-      <!-- <% if @weightlifting == sport.name %>
-        <%= image_tag image_url("w1.png"), class: "off" %>
-        <%= image_tag image_url("w2.png"), class: "on" %>
-      <% elsif @running.name == sport.name %>
-        <%= image_tag image_url("https://secure.ymcanyc.org/page/-/uploads/sub-class-thumbs/running-thumbnail.png"), class: "off" %>
-        <%= image_tag image_url("w2.png"), class: "on" %>
-      <% end %>
-      <div class="control__indicator"></div>-->
-
-  <% end %>
-
+<%= simple_form_for @user do |f| %>
   <% @goals.each do |goal| %>
     <%= check_box_tag "user[goal_ids][]", goal.id, f.object.goals.include?(goal) %>
     <%= goal.name %>

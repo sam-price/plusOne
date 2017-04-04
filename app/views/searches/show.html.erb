@@ -3,7 +3,7 @@
   Nothing
 <% else %>
 
-  <%= @search.search_users.each do |user| %>
+  <% @search.search_users.each do |user| %>
     <%= user.first_name + ' ' + user.last_name %>
 <br>
     <% if user.sports.any? %>

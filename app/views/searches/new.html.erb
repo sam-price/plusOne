@@ -1,12 +1,11 @@
-<%= simple_form_for @search do |search| %>
-  <%= search.label :sports %>
-  <%= search.select :sports, options_for_select(@sports), include_blank: :true %>
+<%= simple_form_for @search do |s| %>
+  <%= s.label :sports %>
+  <%= s.select :sports, options_for_select(@sports), include_blank: :true %>
 
-  <%= search.label :goals %>
-  <%= search.select :goals, options_for_select(@goals), include_blank: :true %>
+  <%= s.label :goals %>
+  <%= s.select :goals, options_for_select(@goals), include_blank: :true %>
 
-
-  <%=# search.input :cities, collection: City.all.order(name: :asc), as: :select, label: "City" %>
+  <%= s.input :cities, collection: @cities, label: "City" %>
 
   <%= submit_tag "Search" %>
 <% end %>
