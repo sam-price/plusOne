@@ -1,5 +1,39 @@
 <% title 'Profile Setup' %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header" data-background-color="purple">
+        <h4 class="title">Profile Setup</h4>
+        <p class="category">Setup your profile settings to make it easier for others to find you.</p>
+      </div> <!-- end card header -->
 
+      <div class="card-content">
+        <%= form_for @user do |f| %>
+          <% @sports.each do |sport| %>
+          <div class="col-md-2">
+
+            <div class="checkbox">
+              <label>
+                <%= check_box_tag "user[sport_ids][]", sport.id, f.object.sports.include?(sport) %>
+                <div class="sport-box">
+                  <%# if sport.name == 'Bodybuilding' %>
+                  <%= image_tag image_url("icons/004-athlete-1.png") %>
+
+                  <%# end %>
+
+                </div>
+              </label>
+              <h6><%= sport.name %></h6>
+            </div>
+
+          </div>
+          <% end %>
+        <% end %>
+
+      </div>
+    </div>
+  </div>
+</div>
 <%= form_for @user do |f| %>
   <% @sports.each do |sport| %>
 

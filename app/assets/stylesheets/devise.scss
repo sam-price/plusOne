@@ -1,54 +1,33 @@
-h1, h2 {
-  font-family: 'Exo 2', sans-serif;
+//////
+// Setup Page Styling
+//////
+// .setting-container {
+//   display:inline;
+//   float: left;
+//   margin-left: 0.75%;
+//   margin-right: 0.5%;
+// }
+//
+.icon {
+  // width:150px;
+  // display:inline;
+  // float: left;
+  // margin-left: 0.75%;
+  // margin-right: 0.5%;
+  //display:inline-flex;
+  //flex-direction:row;
+  //justify-content: space-between;
 }
 
-abbr[title="required"] {
-  color:#23B7E5;
+.sport-box {
+  margin: 0 auto;
+  box-shadow: 0 10px 30px -12px rgba(0, 0, 0, 0.42), 0 4px 25px 0px rgba(0, 0, 0, 0.12), 0 8px 10px -5px rgba(0, 0, 0, 0.2);
+    //margin: -20px 15px 0;
+    border-radius: 3px;
+    padding: 15px;
+    background-color: #fff;
 }
 
-.app-root p.help-block {
-  color: #263238;
-}
-
-.app-root hr {
-  max-width: 400px;
-  border-color: #fff;
-}
-
-.app-root a:hover {
-  color:#23B7E5;
-  text-decoration:none;
-}
-
-.white {
-  color: #fff;
-}
-
-.uppercase {
-  font-family: 'Josefin Sans', sans-serif;
-  text-transform: uppercase;
-}
-
-.app-root .login-form {
-  text-align:left;
-}
-
-.app-root .login-form a {
-  color: #263238;
-}
-
-.app-root .login-form a:hover {
-  color: #23B7E5;
-}
-
-/* Inside Form */
-
-.app-root .card-group hr {
-  margin-top:25px;
-  max-width:50px;
-  border-color: #fff;
-}
-
-.app-root .form-actions {
-  margin-bottom:8px;
+input:checked ~ .sport-box {
+  background: linear-gradient(60deg, #ffa726, #fb8c00);
 }
