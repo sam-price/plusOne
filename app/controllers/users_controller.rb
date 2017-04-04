@@ -9,7 +9,6 @@ class UsersController < ApplicationController
     # @search = User.search(params[:q])
     # @users = @search.result.joins(:sports).paginate(:page => params[:page], :per_page => 5)
     # @search.build_condition
-
     @sports = Sport.uniq.pluck(:name)
     @goals = Goal.uniq.pluck(:name)
     #@users = User.all.where.not(id: current_user).search(params[:search]).paginate(:page => params[:page], :per_page => 5)
@@ -48,7 +47,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(sport_ids: [], goal_ids: [])
-    params.require(:user).permit(:workout_id, :moment_id)
+    params.require(:user).permit(:moment_id, :workout_id, sport_ids: [], goal_ids: [])
   end
 end

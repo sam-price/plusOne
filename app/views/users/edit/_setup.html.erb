@@ -92,7 +92,7 @@
 <div class="col-md-4">
   <div class="radio hidden-checkbox">
     <label class="zero-padding">
-      <%= radio_button_tag 'user[moment_id]', :moment_id %>
+      <%= radio_button_tag 'user[moment_id]', moment.id, f.object.moment(moment) %>
 
     <div class="sport-box">
       <% case moment.name
@@ -127,7 +127,8 @@
 <div class="col-md-4">
   <div class="radio hidden-checkbox">
     <label class="zero-padding">
-      <%= radio_button_tag 'user[workout_id]', :workout_id %>
+
+      <%= radio_button_tag 'user[workout_id]', workout.id, f.object.workout(workout) %>
 
     <div class="sport-box">
       <% case workout.name

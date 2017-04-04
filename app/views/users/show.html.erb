@@ -26,7 +26,7 @@
             | <%= age(@user.date_of_birth)%>
           <% end %>
         </h4>
-        <h6 class="category text-gray"><i class="material-icons">location_on</i>Bristol</h6>
+        <h6 class="category text-gray"><i class="material-icons">location_on</i><%= @user.city.name %></h6>
 
         <hr>
         <div class="col-md-12">
