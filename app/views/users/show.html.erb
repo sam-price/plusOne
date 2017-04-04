@@ -26,7 +26,13 @@
             | <%= age(@user.date_of_birth)%>
           <% end %>
         </h4>
-        <h6 class="category text-gray"><i class="material-icons">location_on</i><%= @user.city.name %></h6>
+        <h6 class="category text-gray"><i class="material-icons">location_on</i>
+          <% if @user.city.to_s.empty? %>
+          Not set
+          <% else %>
+            <%= @user.city.name %>
+          <% end %>
+        </h6>
 
         <hr>
         <div class="col-md-12">
@@ -47,6 +53,16 @@
         <%= f.friend.email %>
         <%= gravatar_tag f.friend.email, :html => { class: 'img', alt: 'Profile Picture' } %>
         <% end %>
+    <% end %>
+
+    <% @user.friendships.each do |f| %>
+      <% if f.state == "active" %>
+      Friends with :
+        <%= f.friend.email %>
+      <% elsif f.state == "pending"%>
+      Pending:
+      <%= f.friend.email %>
+      <% end %>
     <% end %>
     <button class="btn btn-default btn-block"><i class="material-icons">search</i> All Users</button>
     <button class="btn btn-default btn-block"><i class="material-icons">search</i> All Users</button>
@@ -94,10 +110,6 @@
     </div>
   </div>
 </div>
-
-
-
-
 
 
 

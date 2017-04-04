@@ -15,7 +15,7 @@
 
                   <div class="form-group">
                     <%= text_field_tag :search, params[:search], placeholder: 'Search (Name, Exercise, Goals)', class: 'form-control inline' %>
-                    <%= button_tag '<i class="material-icons">search</i><div class="ripple-container"></div>'.html_safe, class: 'btn btn-white btn-round btn-just-icon' %> <span> &nbsp; Note: You can search for a full name, exercises or goals.</span>
+                    <%= button_tag '<i class="material-icons">search</i><div class="ripple-container"></div>'.html_safe, class: 'btn btn-white btn-round btn-just-icon' %> <span> &nbsp; Note: You can search for a full name, exercises or goals.</span><br>
                     <%= link_to 'Advanced Search', new_search_path, class: 'btn btn-info' %>
                   </div>
 
