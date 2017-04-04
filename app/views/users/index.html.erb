@@ -1,21 +1,38 @@
-<h1>Users</h1>
-<p><%= link_to 'Edit Sport', edit_user_path(current_user) %></p>
-
 <div class="row">
-  
-</div>
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header" data-background-color="purple">
+        <h3 class="title">Everyone</h3>
+        <p class="category">Search using the simple or advanced search below to find your perfect workout partner.</p>
+      </div> <!--end card-header-->
 
-<div class="row">
-  <div class="col-md-8">
-      <%= will_paginate(@users) %>
-    </ul>
-    <%= render @users %>
-  </div>
+      <div class="card-content">
+        <div class="row">
+          <div class="col-md-12">
+            <div class="row">
+              <div class="col-md-12">
+                <%= simple_form_for users_path, :method => 'get' do |f| %>
 
-  <div class="col-md-4">
-    <%= form_tag users_path, :method => 'get' do %>
-      <%= text_field_tag :search, params[:search] %>
-      <%= submit_tag "Search", class: 'btn btn-primary' %>
-    <% end %>
+                  <div class="form-group">
+                    <%= text_field_tag :search, params[:search], placeholder: 'Search (Name, Exercise, Goals)', class: 'form-control inline' %>
+                    <%= button_tag '<i class="material-icons">search</i><div class="ripple-container"></div>'.html_safe, class: 'btn btn-white btn-round btn-just-icon' %> <span> &nbsp; Note: You can search for a full name, exercises or goals.</span>
+                    <%= link_to 'Advanced Search', new_search_path, class: 'btn btn-info btn-block' %>
+                  </div>
+
+                <% end %>
+
+                <%= will_paginate(@users) %>
+
+              </div>
+              <div class="col-md-4">
+
+              </div>
+            </div>
+
+            <%= render @users %>
+          </div>
+        </div>
+      </div>
+    </div>
   </div>
 </div>
