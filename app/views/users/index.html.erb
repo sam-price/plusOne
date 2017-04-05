@@ -11,25 +11,37 @@
         <div class="row">
           <div class="col-md-12">
             <div class="row">
-              <div class="col-md-12">
-                <div class="text-center">
+              <div class="col-md-6">
+                <div class="">
+                  <!-- simple get request form -->
                 <%= simple_form_for users_path, :method => 'get' do |f| %>
 
-                  <div class="form-group">
+                  <div class="form-group text-center">
+                    <!--passing through search parameters into the URL -->
                     <%= text_field_tag :search, params[:search], placeholder: 'Search (Name, Exercise, Goals)', class: 'form-control' %>
-                    <%= button_tag 'Quick Search<div class="ripple-container"></div>'.html_safe, class: 'btn btn-lg btn-info btn-ctm' %> <br>
-                    <%= link_to 'Advanced Search', new_search_path, class: 'btn btn-info' %>
+                    <%= button_tag 'Quick Search<div class="ripple-container"></div>'.html_safe, class: 'btn btn-info btn-ctm' %> <br>
                   </div>
 
-                <% end %>
                 </div>
+                <!-- paginating the display of users -->
                 <%= will_paginate(@users) %>
 
               </div>
 
+              <div class="col-md-6 text-center">
+                <br>
+                <p>If the simple search isn't with our advanced search you can filter based on different parameters.</p>
+
+                <%= link_to 'Advanced Search', new_search_path, class: 'btn btn-warning' %>
+              </div>
+              <% end %> <!-- end simple form -->
+
             </div>
 
+            <!--render the users partial - has all users stored inside -->
             <%= render @users %>
+
+            <!--pagination again at bottom of page -->
             <%= will_paginate(@users) %>
 
           </div>

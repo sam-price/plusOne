@@ -2,7 +2,7 @@ class RegistrationsController < Devise::RegistrationsController
 # Created my own controller to override devise and add new parameters
   def edit
     # Orders the gyms by name for the user to select
-    @gyms = Gym.all.order_by(name: :asc)
+    @gyms = Gym.all.order(name: :asc)
   end
 
   protected
