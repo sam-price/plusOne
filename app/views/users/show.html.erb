@@ -61,8 +61,11 @@
 
             <div class="col-md-3"><br><br>
           <div class="text-center">
-            <%= link_to 'Back to All', users_path, class: 'btn btn-info btn-block' %>
-          
+            <%= link_to 'View All Users', users_path, class: 'btn btn-info btn-block' %>
+            <% if @user.id == current_user.id %>
+              <%= link_to 'Change My Preferences', edit_user_path(current_user), class: 'btn btn-success btn-block' %>
+            <% end %>
+
             <% if @user.id != current_user.id %>
               <div class="btn btn-success btn-block white"><%= action_buttons(@user) %></div>
             <% end %>
