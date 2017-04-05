@@ -46,18 +46,59 @@
                   </h6>
 
                   <hr>
-                  <div class="col-md-12">
-                    <h6 class="card-content">About Me</h6>
-                      <p class="card-content">
+                  <div class="col-md-6">
+                    <h6 class="text-left">About Me</h6>
+                      <p class="text-left">
                         <% if @user.bio.to_s.empty? %>
                             <%= @user.first_name %> hasn't set a description yet.
                         <% end %>
                       </p>
                   </div>
 
-                </div>
+                  <div class="col-md-3">
+                    <h6 class="text-left">Activity Level</h6>
+                    <% if @user.workout.to_s.empty? %>
+                      <p class="text-left">
+                        Not yet set.
+                      </p>
+                    <% else %>
+
+                      <p class="text-left">
+                        Workouts <%= @user.workout.name %> days a week.
+                      </p>
+
+                    <% end %>
+
+                    <h6 class="text-left">Skill Level</h6>
+                    <% if @user.workout.to_s.empty? %>
+                      <p class="text-left">
+                        Not yet set.
+                      </p>
+                    <% else %>
+                      <p class="text-left">
+                        <%= @user.fitness_level.name %>.
+                      </p>
+                    <% end %>
+
+                  </div> <!-- end col-md-3 -->
+
+                  <div class="col-md-3">
+                    <h6 class="text-left">Time of day</h6>
+
+                    <% if @user.moment.to_s.empty? %>
+                      <p class="text-left">
+                        Not yet set.
+                      </p>
+                    <% else %>
+                      <p class="text-left">
+                        <%= @user.first_name %> likes to workout in the <%= @user.moment.name %>.
+                      </p>
+                    <% end %>
+                  </div>
+
+                </div> <!-- end content -->
               </div><!--end card profile-->
-            </div>
+            </div> <!-- end col-md-9 -->
 
             <div class="col-md-3"><br><br>
           <div class="text-center">
@@ -148,7 +189,7 @@
 
                       <%= link_to 'Change', edit_user_path(current_user) %>
                     <% else %>
-                      <h4><%= @user.first_name %> has not currently got a gym.</h4>
+                      <h4><%= @user.first_name %> has not set a gym.</h4>
                     <% end %>
 
                   <% elsif (current_user.id == @user.id) && (@user.gyms.empty?)  %>
