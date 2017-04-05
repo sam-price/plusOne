@@ -27,6 +27,7 @@ class UsersController < ApplicationController
     @goals = Goal.all.order(name: :asc)
     @workouts = Workout.all.order(:name)
     @moments = Moment.all
+    @fitness_levels = FitnessLevel.all
 
   end
 
@@ -47,6 +48,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:moment_id, :workout_id, sport_ids: [], goal_ids: [])
+    params.require(:user).permit(:fitness_level_id, :moment_id, :workout_id, sport_ids: [], goal_ids: [])
   end
 end

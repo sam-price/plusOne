@@ -1,124 +1,167 @@
 <% if current_user.id == @user.id %>
   <% title 'Your Profile' %>
 <% else %>
-  <% title 'User Profile' %>
+  <% title "#{@user.first_name}'s Profile" %>
 <% end %>
-<div class="row">
-  <div class="col-md-2 col-md-offset-5">
-    <br>
-  </div>
-
-</div>
-
-<div class="row">
-  <div class="col-md-8">
-    <br>
-    <div class="card card-profile">
-      <%= link_to '<i class="material-icons">settings</i>'.html_safe, edit_user_registration_path(current_user), class: 'btn btn-white btn-round btn-just-icon floatright' %>
-      <div class="card-avatar">
-        <%= gravatar_tag @user.email, :html => { class: 'img', alt: 'Profile Picture' } %>
-
-      </div>
-      <div class="content">
-        <h4 class="card-title">
-          <%= @user.first_name %> <%= @user.last_name %>
-          <% if @user.date_of_birth? %>
-            | <%= age(@user.date_of_birth)%>
-          <% end %>
-        </h4>
-        <h6 class="category text-gray"><i class="material-icons">location_on</i>
-          <% if @user.city.to_s.empty? %>
-          Not set
-          <% else %>
-            <%= @user.city.name %>
-          <% end %>
-        </h6>
-
-        <hr>
-        <div class="col-md-12">
-          <h6 class="card-content">About Me</h6>
-            <p class="card-content">
-              Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi sequi repellat neque laboriosam et hic nobis obcaecati animi quod, impedit totam reiciendis natus velit ipsum itaque eaque dolor porro, beatae.
-            </p>
-        </div>
-
-      </div>
-    </div><!--end card profile-->
-  </div>
-
-  <div class="col-md-4"><br><br>
-    Friends:
-    <% @user.friendships.each do |f| %>
-      <% if f.state == "active" %>
-        <%= f.friend.email %>
-        <%= gravatar_tag f.friend.email, :html => { class: 'img', alt: 'Profile Picture' } %>
-        <% end %>
-    <% end %>
-
-    <% @user.friendships.each do |f| %>
-      <% if f.state == "active" %>
-      Friends with :
-        <%= f.friend.email %>
-      <% elsif f.state == "pending"%>
-      Pending:
-      <%= f.friend.email %>
-      <% end %>
-    <% end %>
-    <button class="btn btn-default btn-block"><i class="material-icons">search</i> All Users</button>
-    <button class="btn btn-default btn-block"><i class="material-icons">search</i> All Users</button>
-    <button class="btn btn-default btn-block"><i class="material-icons">search</i> All Users</button>
-
-  </div>
-</div>
-
-<div class="row">
-    <div class="col-md-6 col-sm-12">
-      <div class="card">
-        <div class="card-header" data-background-color="green">
-          <h4 class="title">Sports</h4>
-        </div>
-
-      <div class="card-content">
-        <p><%= @user.sports.map(&:name).join(', ') %>.</p>
-      </div>
-    </div> <!--End Card-->
-  </div> <!--End col-->
-
-  <div class="col-md-6 col-sm-12">
-    <div class="card">
-      <div class="card-header" data-background-color="blue">
-        <h4 class="title">Goals</h4>
-      </div>
-
-      <div class="card-content">
-        <p><%= @user.goals.map(&:name).join(', ') %>.</p>
-      </div>
-    </div> <!--End card-->
-  </div> <!--End col-->
-</div>
 
 <div class="row">
   <div class="col-md-12">
     <div class="card">
-      <div class="card-header" data-background-color="red">
-        <h4 class="title">Gym</h4>
+      <div class="card-header" data-background-color="purple">
+        <h3 class="title">
+          <% if current_user.id == @user.id %>
+            Your Profile
+          <% else %>
+            <%= @user.first_name %>'s Profile
+          <% end %>
+        </h3>
       </div>
 
-      <div class="card-content">
+        <div class="card-content">
 
+          <div class="row">
+            <div class="col-md-9">
+              <br>
+              <div class="card card-profile">
+                <% if current_user.id == @user.id %>
+                  <%= link_to '<i class="material-icons">settings</i>'.html_safe, edit_user_registration_path(current_user), class: 'btn btn-white btn-round btn-just-icon floatright' %>
+                <% end %>
+                <div class="card-avatar">
+                  <%= gravatar_tag @user.email, :html => { class: 'img', alt: 'Profile Picture' } %>
+
+                </div>
+                <div class="content">
+                  <h4 class="card-title">
+                    <%= @user.first_name %> <%= @user.last_name %>
+                    <% if @user.date_of_birth? %>
+                      | <%= age(@user.date_of_birth)%>
+                    <% end %>
+                  </h4>
+                  <h6 class="category text-gray"><i class="material-icons">location_on</i>
+                    <% if @user.city.to_s.empty? %>
+                    Not set
+                    <% else %>
+                      <%= @user.city.name %>
+                    <% end %>
+                  </h6>
+
+                  <hr>
+                  <div class="col-md-12">
+                    <h6 class="card-content">About Me</h6>
+                      <p class="card-content">
+                        <% if @user.bio.to_s.empty? %>
+                            <%= @user.first_name %> hasn't set a description yet.
+                        <% end %>
+                      </p>
+                  </div>
+
+                </div>
+              </div><!--end card profile-->
+            </div>
+
+            <div class="col-md-3"><br><br>
+          <div class="text-center">
+            <%= link_to 'Back to All', users_path, class: 'btn btn-info btn-block' %>
+          
+            <% if @user.id != current_user.id %>
+              <div class="btn btn-success btn-block white"><%= action_buttons(@user) %></div>
+            <% end %>
+
+          </div>
+
+              <% @user.friendships.each do |f| %>
+                <% if f.state == "active" %>
+                  <%= f.friend.email %>
+                  <%= gravatar_tag f.friend.email, :html => { class: 'img', alt: 'Profile Picture' } %>
+                  <% end %>
+              <% end %>
+
+              <% @user.friendships.each do |f| %>
+                <% if f.state == "active" %>
+                Friends with :
+                  <%= f.friend.email %>
+                <% elsif f.state == "pending"%>
+                Pending:
+                <%= f.friend.email %>
+                <% end %>
+              <% end %>
+
+            </div>
+          </div>
+
+          <div class="row">
+              <div class="col-md-6 col-sm-12">
+                <div class="card">
+                  <div class="card-header" data-background-color="green">
+                    <h4 class="title">Activities</h4>
+                  </div>
+
+                <div class="card-content">
+                  <% if @user.sports.empty? %>
+                    <h4>This user has not currently set any sports.</h4>
+                  <% elsif @user.sports.empty? && current_user.id == @user.id %>
+                    <h2>You haven't set any sports.</h2>
+                    <%= link_to 'Add your sports', edit_user_path(current_user) %>
+                  <% else %>
+                  <h5><%= @user.sports.map(&:name).join(', ') %>.</h5>
+                  <% end %>
+
+                </div>
+              </div> <!--End Card-->
+            </div> <!--End col-->
+
+            <div class="col-md-6 col-sm-12">
+              <div class="card">
+                <div class="card-header" data-background-color="blue">
+                  <h4 class="title">Current Goals</h4>
+                </div>
+
+                <div class="card-content">
+                  <% if @user.goals.empty? %>
+                    <h4>This user has not currently set any goals.</h4>
+                  <% elsif @user.goals.empty? && current_user.id == @user.id %>
+                    <h2>You haven't set any goals.</h2>
+                    <%= link_to 'Add your goals', edit_user_path(current_user) %>
+                  <% else %>
+                  <h5><%= @user.goals.map(&:name).join(', ') %>.</h5>
+                  <% end %>
+                </div>
+              </div> <!--End card-->
+            </div> <!--End col-->
+          </div>
+
+          <div class="row">
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header" data-background-color="red">
+                  <h4 class="title">Gym</h4>
+                </div>
+
+                <div class="card-content">
+
+                  <% if @user.gyms.empty? %>
+                    <% if current_user.id == @user.id %>
+                      <h4>You haven't chosen a gym yet.</h4>
+
+                      <%= link_to 'Change', edit_user_path(current_user) %>
+                    <% else %>
+                      <h4><%= @user.first_name %> has not currently got a gym.</h4>
+                    <% end %>
+
+                  <% elsif (current_user.id == @user.id) && (@user.gyms.empty?)  %>
+
+                  <% else %>
+
+                    <h5><%= @user.gyms.map(&:name).join(', ') %>.</h5>
+                  <% end %>
+
+                </div>
+              </div>
+            </div>
+          </div>
+
+        </div>
       </div>
     </div>
   </div>
 </div>
-
-
-
-<% if @user.sports.empty? %>
-  <h2>This user has not currently set any sports.</h2>
-  <%= link_to 'Add your sports', edit_user_path(current_user) %>
-<% else %>
-<%= @user.first_name %>'s sports are:
-<%= @user.sports.map(&:name).join(', ') %>.
-<br>
-<%= link_to 'Change', edit_user_path(current_user) %>
-<% end %>
