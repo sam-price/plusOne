@@ -133,7 +133,7 @@ on whether you're viewing your own profile or not.
                     <% if current_user.id == @user.id %>
                       <h4>You haven't chosen a gym yet.</h4>
 
-                      <%= link_to 'Change', edit_user_path(current_user) %>
+                      <%= link_to 'Change', edit_user_registration_path(current_user) %>
                     <% else %>
                       <h4><%= @user.first_name %> has not set a gym.</h4>
                     <% end %>

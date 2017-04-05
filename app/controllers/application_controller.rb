@@ -12,6 +12,8 @@ class ApplicationController < ActionController::Base
       edit_user_path(current_user)
     elsif current_user.sports.empty? || current_user.goals.empty?
       edit_user_path(current_user)
+    else
+      root_path
     end
   end
 

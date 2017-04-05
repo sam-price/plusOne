@@ -20,6 +20,8 @@ class User < ApplicationRecord
 
   accepts_nested_attributes_for :gyms, :allow_destroy => true
 
+  enum gender: { male: 0, female: 1, other: 2}
+
 # Using Postgres full-text search for searching across multiple columns
 # in this example covering my first_name & last_name columns in one search
   include PgSearch
@@ -82,11 +84,5 @@ class User < ApplicationRecord
   end
 
 
- # Adding enumeration values for gender and postgresql
- # enum gender: {
- #   Male:                   'Male',
- #   Female:                 'Female',
- #   Other:                  'Other'
- # }
 
 end
