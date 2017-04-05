@@ -1,54 +1,106 @@
 <% title "Dashboard" %>
-<div class="text-center">
-<h1><%= greet %>, <%= current_user.first_name %>!</h1>
-
-<!-- Adding login for when people sign in for the first time - Good UX -->
-<% if current_user && current_user.sign_in_count == 1 %>
-
-  <h2>It seems like it's your first time here.</h2>
-
-<% end %>
-
-<% if current_user.sports.empty? %>
-
-  <p>To get the most out of this platform you will need to setup your preferences.</p>
-
-  <%= link_to 'Setup Profile', edit_user_path(current_user), class: 'btn btn-default' %>
-
-<% end %>
-
-</div>
-<!--Conversation Stuff-->
 <div class="row">
-  <div class="col-md-9">
-    <ul id="conversations-list">
-      <% @conversations.each do |conversation| %>
-        <%= render 'conversations/conversation', conversation: conversation, user: current_user %>
-      <% end %>
-    </ul>
-  </div>
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header" data-background-color="purple">
+        <h2 class="text-center"><%= greet %>, <%= current_user.first_name %>!</h2>
+        <h4 class="category text-center">
+          <!-- Adding customised messages for when people sign in for the first time - Good UX -->
+          <% if current_user && current_user.sign_in_count == 1 %>
 
-  <div class="col-md-3">
-    <div class="panel panel-primary">
-      <div class="panel-heading">
-        <h3 class="panel-title">User list</h3>
+          If you haven't already, set up your profile <%= link_to 'here', edit_user_path(current_user) %>
+
+        <% end %></h4>
       </div>
-      <div class="panel-body">
-        <ul>
-          <% @friends.each do |user| %>
-          <li>
-            <% if user_signed_in? %>
-              Active:
-            <% end %>
-            <%= link_to user.email, conversations_path(user_id: user), remote: true, method: :post %>
 
-          </li>
-          <% end %>
-        </ul>
+      <div class="card-content">
+        <% if current_user.sports.empty? %>
+
+          <p>To get the most out of this platform you will need to setup your preferences.</p>
+
+          <%= link_to 'Setup Profile', edit_user_path(current_user), class: 'btn btn-default' %>
+
+        <% end %>
+
+        <div class="row">
+          <div class="col-md-12">
+            <div class="text-center">
+              <h4>Want to find a gym buddy straight away?</h4>
+
+            <%= link_to 'Get Started', new_search_path, class: 'btn btn-info btn-lg' %>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
   </div>
 </div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header" data-background-color="blue">
+        <h2 class="text-center">My Messages</h2>
+        <h4 class="category text-center">Talk to your gym buddies here</h4>
+      </div> <!-- end card-header-->
+
+        <div class="card-content">
+
+
+        <!--Conversation Stuff-->
+        <div class="row">
+          <h4 class="text-center">Active Conversations</h4>
+          <div class="col-md-3">
+            <div class="panel panel-primary">
+              <div class="panel-heading">
+                <h3 class="panel-title">Friends List</h3>
+              </div>
+              <div class="panel-body">
+                <ul>
+                  <% @friends.each do |user| %>
+
+                  <% if @friends.empty? %>
+
+                  <% end %>
+                  <li>
+
+                    <%= link_to user.first_name ++ user.last_name, conversations_path(user_id: user), remote: true, method: :post %>
+
+                  </li>
+                  <% end %>
+                </ul>
+              </div>
+            </div>
+          </div>
+
+          <div class="col-md-9">
+            <ul id="conversations-list">
+              <% @conversations.each do |conversation| %>
+                <%= render 'conversations/conversation', conversation: conversation, user: current_user %>
+              <% end %>
+            </ul>
+          </div>
+        </div>
+
+
+        </div> <!--end card-content-->
+
+      </div>
+    </div> <!-- end card-->
+  </div> <!--end col-md-12 -->
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header" data-background-color="green">
+        <h4 class="title">Events</h4>
+        <h4 class="category">(Coming Soon)</h4>
+      </div>
+    </div>
+  </div>
+</div>
+
 
 <div class="row">
 <div class="w-card-center">
