@@ -1,6 +1,6 @@
 <% title 'All Users' %>
 <div class="row">
-  <div class="col-md-8 col-md-offset-2">
+  <div class="col-md-10 col-md-offset-1">
     <div class="card">
       <div class="card-header" data-background-color="purple">
         <h3 class="title text-center">All Users</h3>
@@ -17,7 +17,7 @@
 
                   <div class="form-group">
                     <%= text_field_tag :search, params[:search], placeholder: 'Search (Name, Exercise, Goals)', class: 'form-control' %>
-                    <%= button_tag '<i class="material-icons">search</i><div class="ripple-container"></div>'.html_safe, class: 'btn btn-lg btn-info btn-round btn-just-icon' %> <br>
+                    <%= button_tag 'Quick Search<div class="ripple-container"></div>'.html_safe, class: 'btn btn-lg btn-info btn-ctm' %> <br>
                     <%= link_to 'Advanced Search', new_search_path, class: 'btn btn-info' %>
                   </div>
 
