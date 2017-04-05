@@ -63,3 +63,8 @@
 input:checked ~ .sport-box {
   background: linear-gradient(60deg, #ffa726, #fb8c00);
 }
+
+.btn-custom {
+  width:100%;
+  max-width: 200px;
+}
