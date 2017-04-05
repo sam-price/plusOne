@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :users
   resource :dashboards, only: [:index]
   resources :searches
+  resources :gyms, only: [:index, :show]
 
 # Limiting resources for the friendships. Don't want routes to get clogged
   resources :friendships, only: [:create, :destroy, :accept] do

@@ -1,0 +1,60 @@
+<div class="row">
+  <div class="col-md-12 text-center">
+    <div class="card">
+      <div class="card-header" data-background-color="purple">
+        <h4 class="title">My Gym(s)</h4>
+      </div>
+
+      <div class="card-content">
+        <!--Loop through each gym that the user belongs to- and displays it -->
+        <% current_user.gyms.each do |gym| %>
+        <div class="card">
+          <div class="card-header" data-background-color="orange">
+            <!--simple logic for nicer reading if there is only one member-->
+            <h4><%= gym.name %> - <% if gym.users.size == 1 %><%= gym.users.size %> member <% else %> members <% end %>
+            </h4>
+          </div>
+
+          <div class="card-content text-left">
+            <h4>People:</h4>
+
+<!--Simple listing through the gyms users. This needs more work but running out of time and isn't a primary feature -->
+            <ul>
+            <% gym.users.each do |user| %>
+
+                  <% if current_user.id == user.id %>
+
+                    <li>You</li>
+
+                  <% else %>
+
+                    <li><%= link_to user.first_name + ' ' + user.last_name, user_path(user.id) %></li>
+
+                  <% end %>
+
+            <% end %>
+            </ul>
+            </div>
+          </div>
+        </div>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header" data-background-color="red">
+        <h4 class="title">All Gyms</h4>
+      </div>
+
+      <div class="card-content">
+        <div class="row">
+          <%= render @gyms %>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

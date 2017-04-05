@@ -37,30 +37,30 @@
     </h4>
   </div>
 
-    <h6 class="inline"><strong>Enjoys: </strong></h6>
+    <h6 class="inline"><strong>Activities: </strong></h6>
       <p class="inline">
         <% if user.sports.any? %>
-          <%= user.sports.map(&:name).join(', ') %>.
+          <%= user.sports.map(&:name).join(', ') %>
         <% else %>
-          This user hasn't set any sports.
+          This user hasn't set any sports
         <% end %>
       </p>
 <br>
       <h6 class="inline"><strong>Goals:</strong></h6>
         <p class="inline">
           <% if user.goals.any? %>
-            <%= user.goals.map(&:name).join(', ') %>.
+            <%= user.goals.map(&:name).join(', ') %>
           <% else %>
-            <%= user.first_name %> hasn't set any goals.
+            <%= user.first_name %> hasn't set any goals
           <% end %>
         </p>
 <br>
         <h6 class="inline"><strong>Gym:</strong></h6>
           <p class="inline">
             <% if user.gyms.any? %>
-              <%= user.gyms.map(&:name).join(', ') %>.
+              <%= user.gyms.map(&:name).join(', ') %>
             <% else %>
-              No gym.
+              No gym set
             <% end %>
           </p>
   </div>
@@ -68,7 +68,7 @@
   <div class="card-footer">
     <div class="stats">
       Description:
-      <% if user.city.to_s.empty? %>
+      <% if user.bio.to_s.empty? %>
         none set
       <% else %>
         <%= user.bio %>

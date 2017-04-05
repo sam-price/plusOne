@@ -23,7 +23,7 @@ class User < ApplicationRecord
 # in this example covering my first_name & last_name columns in one search
   include PgSearch
   pg_search_scope :quick_search, against: [:first_name, :last_name], using: {tsearch: {dictionary: "english"}},
-  associated_against: {sports: :name, goals: :name }
+  associated_against: {city: :name, fitness_level: :name, gyms: :name, sports: :name, goals: :name }
   scope :sorted, ->{ order(first_name: :asc) }
 
 

@@ -50,7 +50,7 @@
                     <h6 class="text-left">About Me</h6>
                       <p class="text-left">
                         <% if @user.bio.to_s.empty? %>
-                            <%= @user.first_name %> hasn't set a description yet.
+                            <%= @user.first_name %> hasn't set a description yet
                         <% else %>
                           <%= @user.bio %>
                         <% end %>
@@ -61,12 +61,12 @@
                     <h6 class="text-left">Activity Level</h6>
                     <% if @user.workout.to_s.empty? %>
                       <p class="text-left">
-                        Not yet set.
+                        Not yet set
                       </p>
                     <% else %>
 
                       <p class="text-left">
-                        Workouts <%= @user.workout.name %> days a week.
+                        Workouts <%= @user.workout.name %> days a week
                       </p>
 
                     <% end %>
@@ -74,11 +74,11 @@
                     <h6 class="text-left">Skill Level</h6>
                     <% if @user.workout.to_s.empty? %>
                       <p class="text-left">
-                        Not yet set.
+                        Not yet set
                       </p>
                     <% else %>
                       <p class="text-left">
-                        <%= @user.fitness_level.name %>.
+                        <%= @user.fitness_level.name %>
                       </p>
                     <% end %>
 
@@ -89,11 +89,11 @@
 
                     <% if @user.moment.to_s.empty? %>
                       <p class="text-left">
-                        Not yet set.
+                        Not yet set
                       </p>
                     <% else %>
                       <p class="text-left">
-                        <%= @user.first_name %> likes to workout in the <%= @user.moment.name %>.
+                        <%= @user.first_name %> likes to workout in the <%= @user.moment.name %>
                       </p>
                     <% end %>
                   </div>
@@ -107,14 +107,14 @@
 
             <% if @user.id != current_user.id %>
               <div class="btn btn-lg btn-success btn-block white"><%= action_buttons(@user) %></div>
-              <hr>
+
             <% end %>
 
             <%= link_to 'View All Users', users_path, class: 'btn btn-info btn-block' %>
             <% if @user.id == current_user.id %>
               <%= link_to 'Change My Preferences', edit_user_path(current_user), class: 'btn btn-success btn-block' %>
             <% end %>
-
+<hr>
             <div class="col-md-12">
               <div class="card">
                 <div class="card-header" data-background-color="red">
@@ -136,7 +136,7 @@
 
                   <% else %>
 
-                    <h5><%= @user.gyms.map(&:name).join(', ') %>.</h5>
+                    <h4><%= @user.gyms.map(&:name).join(', ') %>.</h4>
                   <% end %>
 
                 </div>
