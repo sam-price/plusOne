@@ -1,11 +1,23 @@
-<%= simple_form_for @search do |s| %>
-  <%= s.label :sports %>
-  <%= s.select :sports, options_for_select(@sports), include_blank: :true %>
+<div class="row">
+  <div class="col-md-6 col-md-offset-3">
+    <div class="card">
+      <div class="card-header" data-background-color="orange">
+        <h2 class="title text-center">Advanced Search</h2>
+      </div>
 
-  <%= s.label :goals %>
-  <%= s.select :goals, options_for_select(@goals), include_blank: :true %>
+      <div class="card-content">
+        <hr>
+        <p>Enter your search parameters below:</p>
+        <%= simple_form_for @search do |s| %>
+          <%= s.input :sports, collection: @sports, include_blank: :true %>
 
-  <%= s.input :cities, collection: @cities, label: "City" %>
+          <%= s.input :goals, collection: @goals, include_blank: :true %>
 
-  <%= submit_tag "Search" %>
-<% end %>
+          <%= s.input :cities, collection: @cities, label: "City" %>
+
+          <%= button_tag "<i class='material-icons'>search</i>Search".html_safe, class: 'btn btn-info btn-block' %>
+        <% end %>
+      </div>
+    </div>
+  </div>
+</div>

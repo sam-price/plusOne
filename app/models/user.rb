@@ -1,6 +1,6 @@
 class User < ApplicationRecord
+
   belongs_to :city
-  accepts_nested_attributes_for :city
   belongs_to :workout
   belongs_to :fitness_level
   belongs_to :moment

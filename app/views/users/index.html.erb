@@ -1,9 +1,10 @@
+<% title 'All Users' %>
 <div class="row">
-  <div class="col-md-12">
+  <div class="col-md-8 col-md-offset-2">
     <div class="card">
       <div class="card-header" data-background-color="purple">
-        <h3 class="title">Everyone</h3>
-        <p class="category">Search using the simple or advanced search below to find your perfect workout partner.</p>
+        <h3 class="title text-center">All Users</h3>
+        <p class="category text-center">Search using the simple or advanced search below to find your perfect workout partner.</p>
       </div> <!--end card-header-->
 
       <div class="card-content">
@@ -11,25 +12,26 @@
           <div class="col-md-12">
             <div class="row">
               <div class="col-md-12">
+                <div class="text-center">
                 <%= simple_form_for users_path, :method => 'get' do |f| %>
 
                   <div class="form-group">
-                    <%= text_field_tag :search, params[:search], placeholder: 'Search (Name, Exercise, Goals)', class: 'form-control inline' %>
-                    <%= button_tag '<i class="material-icons">search</i><div class="ripple-container"></div>'.html_safe, class: 'btn btn-white btn-round btn-just-icon' %> <span> &nbsp; Note: You can search for a full name, exercises or goals.</span><br>
+                    <%= text_field_tag :search, params[:search], placeholder: 'Search (Name, Exercise, Goals)', class: 'form-control' %>
+                    <%= button_tag '<i class="material-icons">search</i><div class="ripple-container"></div>'.html_safe, class: 'btn btn-lg btn-info btn-round btn-just-icon' %> <br>
                     <%= link_to 'Advanced Search', new_search_path, class: 'btn btn-info' %>
                   </div>
 
                 <% end %>
-
+                </div>
                 <%= will_paginate(@users) %>
 
               </div>
-              <div class="col-md-4">
 
-              </div>
             </div>
 
             <%= render @users %>
+            <%= will_paginate(@users) %>
+
           </div>
         </div>
       </div>
