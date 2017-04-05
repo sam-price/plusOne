@@ -59,9 +59,9 @@ bristol = City.find_by_name('Bristol')
 ### GYMS - Also giving them a city (through associations) to the ones known, currently only using Bristol gyms
 ######################
 gyms = Gym.create([
-  { name: 'Horfield Leisure Centre', bio: 'This is an example bio. It make look the same as everyone else as it is seed, but it is dynamic. No need to worry.' city: bristol }, { name: 'MyGym', bio: 'This is an example bio. It make look the same as everyone else as it is seed, but it is dynamic. No need to worry.' city: bristol },
-  { name: 'Risk Gymnasium', bio: 'This is an example bio. It make look the same as everyone else as it is seed, but it is dynamic. No need to worry.' city: bristol }, { name: 'BS7 Gym', bio: 'This is an example bio. It make look the same as everyone else as it is seed, but it is dynamic. No need to worry.' city: bristol }, { name: 'PureGym', bio: 'This is an example bio. It make look the same as everyone else as it is seed, but it is dynamic. No need to worry.' city: bristol },
-  { name: 'Anytime Fitness', bio: 'This is an example bio. It make look the same as everyone else as it is seed, but it is dynamic. No need to worry.' city: bristol }, { name: 'DW Sports Fitness', bio: 'This is an example bio. It make look the same as everyone else as it is seed, but it is dynamic. No need to worry.' city: bristol }
+  { name: 'Horfield Leisure Centre', bio: 'This is an example bio. It make look the same as everyone else as it is seed, but it is dynamic. No need to worry.', city: bristol }, { name: 'MyGym', bio: 'This is an example bio. It make look the same as everyone else as it is seed, but it is dynamic. No need to worry.', city: bristol },
+  { name: 'Risk Gymnasium', bio: 'This is an example bio. It make look the same as everyone else as it is seed, but it is dynamic. No need to worry.', city: bristol }, { name: 'BS7 Gym', bio: 'This is an example bio. It make look the same as everyone else as it is seed, but it is dynamic. No need to worry.', city: bristol }, { name: 'PureGym', bio: 'This is an example bio. It make look the same as everyone else as it is seed, but it is dynamic. No need to worry.', city: bristol },
+  { name: 'Anytime Fitness', bio: 'This is an example bio. It make look the same as everyone else as it is seed, but it is dynamic. No need to worry.', city: bristol }, { name: 'DW Sports Fitness', bio: 'This is an example bio. It make look the same as everyone else as it is seed, but it is dynamic. No need to worry.', city: bristol }
   ])
 
 ######################
