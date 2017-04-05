@@ -3,12 +3,13 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-header" data-background-color="purple">
+        <!--Displaying a greeting for a nicer user experience -->
         <h2 class="text-center"><%= greet %>, <%= current_user.first_name %>!</h2>
         <h4 class="category text-center">
           <!-- Adding customised messages for when people sign in for the first time - Good UX -->
           <% if current_user && current_user.sign_in_count == 1 %>
 
-          If you haven't already, set up your profile <%= link_to 'here', edit_user_path(current_user) %>
+          Welcome to Gym Meet. I hope you find the platform useful.
 
         <% end %></h4>
       </div>
@@ -16,10 +17,11 @@
       <div class="card-content">
         <div class="row">
           <div class="col-md-12 text-center">
+            <!-- Using if statements to see if profile is set up  -->
             <% if current_user.sports.empty? || current_user.goals.empty? %>
 
               <h4>To get the most out of this platform you will need to setup your preferences.</h4>
-
+              <!--Rails link helpers -->
               <%= link_to 'Setup Profile', edit_user_path(current_user), class: 'btn btn-primary btn-lg' %>
 
             <% end %>
@@ -32,7 +34,7 @@
             <div class="text-center">
               <h4>Want to find to find someone straight away?</h4>
 
-            <%= link_to 'Get Started', new_search_path, class: 'btn btn-info btn-lg' %>
+            <%= link_to 'Get Started', users_path, class: 'btn btn-info btn-lg' %>
             </div>
           </div>
         </div>
@@ -59,12 +61,14 @@
               <div class="panel-body">
                 <p>Open up a conversation and arrange to meet up!</p>
                 <ul>
+                  <!--Looping through current friends -->
                   <% @friends.each do |user| %>
                     <% if @friends.empty? %>
                       You haven't added any friends yet. <%= link_to_active_li 'Find a gym buddy now.', users_path %>
                     <% else %>
 
                   <li>
+                    <!-- Displaying each name of the friends with the local variable -->
                     <%= user.first_name + ' ' + user.last_name %> -
                     <%= link_to 'Send Message', conversations_path(user_id: user), remote: true, method: :post %>
                   </li>
@@ -81,6 +85,8 @@
               <h3 class="panel-title">Pending Requests</h3>
             </div>
             <div class="panel-body">
+              <!--adding logic statements for a better UX. Displaying different content
+            dependent on answers-->
               <% if @pending.empty? %>
               <p>No pending requests.</p>
 
@@ -104,7 +110,6 @@
 
         <!--Conversation Stuff-->
         <div class="row">
-          <h4 class="text-center">Conversations</h4>
           <hr></hr>
 
           <div class="col-md-12">
@@ -133,7 +138,7 @@
       </div>
 
       <div class="card-content">
-
+<!--rendering the calendar partial - feature was never completed -->
         <%= month_calendar number_of_weeks: 2 do |date| %>
           <%= date %>
         <% end %>
@@ -142,24 +147,3 @@
     </div>
   </div>
 </div>
-
-
-<% current_user.friendships.each do |f| %>
-  <% if f.state == "active" %>
-    <%= f.friend.email %>
-    <%= gravatar_tag f.friend.email, :html => { class: 'img', alt: 'Profile Picture' } %>
-    <% end %>
-<% end %>
-
-<% if current_user.active_friends %>
-
-<% end %>
-<% current_user.friendships.each do |f| %>
-  <% if f.state == "active" %>
-  Friends with :
-    <%= f.friend.email %>
-  <% elsif f.state == "pending"%>
-  Pending friend requests:
-    <%= link_to f.friend.email %>
-  <% end %>
-<% end %>

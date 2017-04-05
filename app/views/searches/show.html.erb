@@ -1,22 +1,101 @@
-<h1>Results:</h1>
-<% if @search.search_users.empty? %>
-  Nothing
-<% else %>
+<% title 'Search Results' %>
+<div class="row">
+  <div class="col-md-12">
+    <div class="card">
+      <div class="card-header" data-background-color="purple">
+        <h4>Search Results:</h4>
+      </div>
 
-  <% @search.search_users.each do |user| %>
-    <%= user.first_name + ' ' + user.last_name %>
-<br>
-    <% if user.sports.any? %>
-      <%= user.sports.map(&:name).join(', ') %>.
-    <% else %>
-      This user hasn't set any sports.
-    <% end %>
-<br>
-    <% if user.goals.any? %>
-      <%= user.goals.map(&:name).join(', ') %>.
-    <% else %>
-      <%= user.first_name %> hasn't set any goals.
-    <% end %>
-<br>
+      <div class="card-content">
+        <% if @search.search_users.empty? %>
+          Nothing
+        <% else %>
+        <% @search.search_users.each do |user| %>
+        <div class="card card-stats">
+          <div class="card-header show-users">
+            <%= gravatar_tag user.email, size: 175, :html => { class: 'img', alt: 'Profile Picture' } %>
+            <div class="user-name">
+              <!--Added for better UX if there are longer names -->
+              <% if user.first_name.length + user.last_name.length <= 12 %>
+                <h3><%= user.first_name + ' ' + user.last_name %></h4>
+              <% else %>
+                <h4><%= user.first_name + ' ' + user.last_name %></h5>
+              <% end %>
+            </div>
+          </div>
+
+          <div class="card-content user-display">
+          <div class="card-group">
+            <h4 class="inline"><i class="fa fa-calendar" aria-hidden="true"></i> Age:</h4>
+            <h4 class="inline">
+              <% if user.date_of_birth? %>
+                <%= age(user.date_of_birth)%>
+              <% else %>
+                Unknown
+              <% end %>
+            </h4>
+          </div>
+
+          <div class="card-group">
+            <h4 class="inline"><i class="fa fa-location-arrow" aria-hidden="true"></i> Location:</h4>
+            <h4 class="inline">
+              <% if user.city.to_s.empty? %>
+                Not set
+              <% else %>
+
+              <%= user.city.name %>
+
+              <% end %>
+
+            </h4>
+          </div>
+
+            <h6 class="inline"><strong>Activities: </strong></h6>
+              <p class="inline">
+                <% if user.sports.any? %>
+                  <%= user.sports.map(&:name).join(', ') %>
+                <% else %>
+                  This user hasn't set any sports
+                <% end %>
+              </p>
+        <br>
+              <h6 class="inline"><strong>Goals:</strong></h6>
+                <p class="inline">
+                  <% if user.goals.any? %>
+                    <%= user.goals.map(&:name).join(', ') %>
+                  <% else %>
+                    <%= user.first_name %> hasn't set any goals
+                  <% end %>
+                </p>
+        <br>
+                <h6 class="inline"><strong>Gym:</strong></h6>
+                  <p class="inline">
+                    <% if user.gyms.any? %>
+                      <%= user.gyms.map(&:name).join(', ') %>
+                    <% else %>
+                      No gym set
+                    <% end %>
+                  </p>
+          </div>
+
+          <div class="card-footer">
+            <div class="stats">
+              Description:
+              <% if user.bio.to_s.empty? %>
+                none set
+              <% else %>
+                <%= user.bio %>
+              <% end %>
+            </div>
+            <div class="stats pull-right">
+              <%= link_to 'View Profile', user_path(user.id), class: 'btn btn-info' %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
   <% end %>
 <% end %>

@@ -1,5 +1,8 @@
 class User < ApplicationRecord
 
+# User setup and associations. Large file as pretty much everything is based around the users
+# in this application
+
   belongs_to :city
   belongs_to :workout
   belongs_to :fitness_level
@@ -15,8 +18,6 @@ class User < ApplicationRecord
   has_many :messages
   has_many :conversations, foreign_key: :sender_id
 
-  #accepts_nested_attributes_for :sports
-  #accepts_nested_attributes_for :city
   accepts_nested_attributes_for :gyms, :allow_destroy => true
 
 # Using Postgres full-text search for searching across multiple columns
@@ -79,19 +80,6 @@ class User < ApplicationRecord
   def friendship_relation(user_2)
     Friendship.where(user_id: [self.id, user_2.id], friend_id: [self.id, user_2.id]).first
   end
-
-###################
-## Basic Search Method
-###################
-  # def self.search(search)
-  #  if search
-  #    #eager_load(:sports).joins(:sports).where("sports.name ILIKE ?", "%#{search}%")
-  #    joins(:sports).where("first_name ILIKE :search OR sports.name ILIKE :search", search: "%#{search}%").distinct
-  #  else
-  #    #all.eager_load(:sports)
-  #    all
-  #  end
-  # end
 
 
  # Adding enumeration values for gender and postgresql

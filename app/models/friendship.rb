@@ -1,4 +1,7 @@
 class Friendship < ApplicationRecord
+
+  # basic friendship associations
+  
   belongs_to :user
 	belongs_to :friend, class_name: 'User'
 

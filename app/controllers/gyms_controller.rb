@@ -1,4 +1,5 @@
 class GymsController < ApplicationController
+# simple controller handling the gyms
   def index
     @gyms = Gym.all
   end

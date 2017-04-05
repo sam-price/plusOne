@@ -1,6 +1,6 @@
 module ApplicationHelper
 
-  # Greeting message method
+  # Greeting message method - created for better UX
   def greet
     now = Time.now
     today = Date.today.to_time

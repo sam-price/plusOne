@@ -1,17 +1,8 @@
 <div class="sidebar" data-color="purple" data-image="<%= image_url('test.jpg') %>">
-
-<!--
-      Tip 1: You can change the color of the sidebar using: data-color="purple | blue | green | orange | red"
-
-      Tip 2: you can also add an image using data-image tag
-  -->
-
 <div class="logo">
-  <a href="#" class="simple-text">
-    'x'
-  </a>
+  <%= link_to 'Gym Meetup', root_path, class: 'simple-text'%>
 </div>
-
+<!-- sidebar nav with links. links have an active class put on them to display when on each page-->
   <div class="sidebar-wrapper">
         <ul class="nav">
             <li>
@@ -20,17 +11,14 @@
             <li>
               <%= link_to_active_li '<i class="material-icons">search</i><p>Find Gym Buddy</p>'.html_safe, users_path %>
             </li>
-            <hr>
             <li>
               <%= link_to_active_li '<i class="material-icons">person</i><p>My Profile</p>'.html_safe, user_path(current_user) %>
             </li>
             <li>
-              <%= link_to_active_li '<i class="material-icons">person</i><p>My Activities</p>'.html_safe, edit_user_path(current_user) %>
+              <%= link_to_active_li '<i class="material-icons">build</i><p>My Preferences</p>'.html_safe, edit_user_path(current_user) %>
             </li>
             <li>
-              <a href="#">
-                <p>Gyms</p>
-              </a>
+              <%= link_to_active_li '<i class="material-icons">store</i><p>Gyms</p>'.html_safe, gyms_path %>
             </li>
         </ul>
   </div>

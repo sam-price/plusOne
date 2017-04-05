@@ -3,7 +3,7 @@
 <% else %>
   <% title "#{@user.first_name}'s Profile" %>
 <% end %>
-
+<!-- profile page -->
 <div class="row">
   <div class="col-md-12">
     <div class="card">
@@ -17,6 +17,12 @@
         </h3>
       </div>
 
+<!--
+Using the user variable setting up a bunch of conditions to display everything.
+Within this page I handle loads of if-else statements to make sure the user has the right messages
+depending on which profile they are viewing. There is also code that shows certain buttons dependent
+on whether you're viewing your own profile or not.
+-->
         <div class="card-content">
 
           <div class="row">
@@ -104,7 +110,7 @@
 
             <div class="col-md-3"><br><br>
           <div class="text-center">
-
+<!-- Different friendship buttons dependent on what actions have happened-->
             <% if @user.id != current_user.id %>
               <div class="btn btn-lg btn-success btn-block white"><%= action_buttons(@user) %></div>
 

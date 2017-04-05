@@ -8,13 +8,14 @@
       </div> <!-- end card header -->
 
       <div class="card-content">
-
+          <!-- passed the page into a partial -->
           <%= render 'users/edit/setup'%>
 
       </div>
     </div>
   </div>
 </div>
+
 <%= simple_form_for @user do |f| %>
 <%= f.association :sports, as: :check_boxes %>
 <%= f.association :goals, as: :check_boxes %>

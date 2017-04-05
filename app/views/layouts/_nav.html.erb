@@ -9,11 +9,13 @@
       </button>
       <a class="navbar-brand navbar-uppercasedata: { confirm: "Are you sure?" }">
         <%= content_for?(:title) ? yield(:title) : '' %>
+        <!--Loading in the titles defined on each page -->
       </a>
     </div>
 
     <div class="collapse navbar-collapse">
       <ul class="nav navbar-nav navbar-right">
+        <!-- Using rails helpers  -->
         <li>
           <%= link_to '<i class="material-icons">home</i>
           <p class="hidden-lg hidden-md">Home</p>'.html_safe, root_path, class: 'dropdown-toggle' %>
@@ -36,7 +38,8 @@
         </li>
 
       </ul>
-
+ <!-- Putting a form inside the nav bar. This can be used to search for all users, gyms etc
+ -->
       <%= form_tag users_path, :method => 'get', class: 'navbar-form navbar-right', role: 'search' do %>
         <div class="form-group is-empty">
           <%= text_field_tag :search, params[:search], placeholder: 'Search', class: 'form-control' %>

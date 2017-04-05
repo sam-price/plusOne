@@ -1,14 +1,17 @@
+<% title 'Advanced Search' %>
+
 <div class="row">
   <div class="col-md-6 col-md-offset-3">
     <div class="card">
       <div class="card-header" data-background-color="orange">
         <h2 class="title text-center">Advanced Search</h2>
       </div>
-
+<!-- Very simple form to display different select boxes dependent on what's in the arrays-->
       <div class="card-content">
         <hr>
         <p>Enter your search parameters below:</p>
         <%= simple_form_for @search do |s| %>
+        <!--Using collections to select what was defined in the searches controller -->
           <%= s.input :sports, collection: @sports, include_blank: :true %>
 
           <%= s.input :goals, collection: @goals, include_blank: :true %>

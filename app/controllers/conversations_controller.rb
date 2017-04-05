@@ -1,5 +1,6 @@
 class ConversationsController < ApplicationController
   def create
+    # Creating a conversation to hold all the messages in - takes the user ID params
     @conversation = Conversation.get(current_user.id, params[:user_id])
 
     add_to_conversations unless conversated?
@@ -10,6 +11,7 @@ class ConversationsController < ApplicationController
   end
 
   def close
+    # closing the conversation session
     @conversation = Conversation.find(params[:id])
 
     session[:conversations].delete(@conversation.id)
@@ -20,7 +22,7 @@ class ConversationsController < ApplicationController
   end
 
   private
-
+# private method to hold array of the conversation session for each user
   def add_to_conversations
     session[:conversations] ||= []
     session[:conversations] << @conversation.id

@@ -1,3 +1,4 @@
+<!-- Display all main content wrapped inside this code -->
 <div class="wrapper">
 
   <%= render 'layouts/sidebar' %>
@@ -10,8 +11,9 @@
       <div class="container-fluid">
         <div class="animated fadeIn">
 
+          <!-- Yield renders all pages that are called. They are within the container and animated class -->
           <%= yield %>
-          
+
         </div>
       </div>
     </div>

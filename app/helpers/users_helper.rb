@@ -1,4 +1,5 @@
 module UsersHelper
+  # helper to check the state of friendships made 
   def action_buttons(user)
     case current_user.friendship_status(user) when 'friends'
       link_to 'Remove Friend', friendship_path(current_user.friendship_relation(user)), method: :delete
