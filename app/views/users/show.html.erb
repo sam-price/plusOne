@@ -115,6 +115,34 @@
               <%= link_to 'Change My Preferences', edit_user_path(current_user), class: 'btn btn-success btn-block' %>
             <% end %>
 
+            <div class="col-md-12">
+              <div class="card">
+                <div class="card-header" data-background-color="red">
+                  <h4 class="title">Gym</h4>
+                </div>
+
+                <div class="card-content">
+
+                  <% if @user.gyms.empty? %>
+                    <% if current_user.id == @user.id %>
+                      <h4>You haven't chosen a gym yet.</h4>
+
+                      <%= link_to 'Change', edit_user_path(current_user) %>
+                    <% else %>
+                      <h4><%= @user.first_name %> has not set a gym.</h4>
+                    <% end %>
+
+                  <% elsif (current_user.id == @user.id) && (@user.gyms.empty?)  %>
+
+                  <% else %>
+
+                    <h5><%= @user.gyms.map(&:name).join(', ') %>.</h5>
+                  <% end %>
+
+                </div>
+              </div>
+            </div>
+
           </div>
 
             </div>
@@ -176,35 +204,6 @@
             </div> <!--End col-->
           </div>
 
-          <div class="row">
-            <div class="col-md-12">
-              <div class="card">
-                <div class="card-header" data-background-color="red">
-                  <h4 class="title">Gym</h4>
-                </div>
-
-                <div class="card-content">
-
-                  <% if @user.gyms.empty? %>
-                    <% if current_user.id == @user.id %>
-                      <h4>You haven't chosen a gym yet.</h4>
-
-                      <%= link_to 'Change', edit_user_path(current_user) %>
-                    <% else %>
-                      <h4><%= @user.first_name %> has not set a gym.</h4>
-                    <% end %>
-
-                  <% elsif (current_user.id == @user.id) && (@user.gyms.empty?)  %>
-
-                  <% else %>
-
-                    <h5><%= @user.gyms.map(&:name).join(', ') %>.</h5>
-                  <% end %>
-
-                </div>
-              </div>
-            </div>
-          </div>
 
         </div>
       </div>
