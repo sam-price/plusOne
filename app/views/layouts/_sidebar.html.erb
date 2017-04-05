@@ -12,13 +12,13 @@
               <%= link_to_active_li '<i class="material-icons">search</i><p>Find Gym Buddy</p>'.html_safe, users_path %>
             </li>
             <li>
+              <%= link_to_active_li '<i class="material-icons">store</i><p>View Gyms</p>'.html_safe, gyms_path %>
+            </li>
+            <li>
               <%= link_to_active_li '<i class="material-icons">person</i><p>My Profile</p>'.html_safe, user_path(current_user) %>
             </li>
             <li>
               <%= link_to_active_li '<i class="material-icons">build</i><p>My Preferences</p>'.html_safe, edit_user_path(current_user) %>
-            </li>
-            <li>
-              <%= link_to_active_li '<i class="material-icons">store</i><p>View Gyms</p>'.html_safe, gyms_path %>
             </li>
         </ul>
   </div>
