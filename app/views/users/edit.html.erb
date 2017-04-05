@@ -15,21 +15,3 @@
     </div>
   </div>
 </div>
-
-<%= simple_form_for @user do |f| %>
-<%= f.association :sports, as: :check_boxes %>
-<%= f.association :goals, as: :check_boxes %>
-<%= f.association :workout %>
-
-<%= f.button :submit, class: 'btn btn-default' %>
-<% end %>
-
-
-<%= simple_form_for @user do |f| %>
-  <% @goals.each do |goal| %>
-    <%= check_box_tag "user[goal_ids][]", goal.id, f.object.goals.include?(goal) %>
-  <p><%= goal.name %></p>
-  <% end %>
-
-  <%= f.button :submit, class: 'btn btn-default' %>
-<% end %>

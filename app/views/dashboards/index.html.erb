@@ -32,6 +32,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="text-center">
+              <h4>Gym MeetUp can help you find the workout partner that will push you just that little bit more.</h4>
               <h4>Want to find someone straight away?</h4>
 
             <%= link_to 'Get Started', users_path, class: 'btn btn-info btn-lg' %>
@@ -60,6 +61,7 @@
               </div>
               <div class="panel-body">
                 <p>Open up a conversation and arrange to meet up!</p>
+                <p>Note: Messaging doesn't work on Heroku due to an incompatibility with WebSockets (sorry!)</p>
                 <ul>
                   <!--Looping through current friends -->
                   <% @friends.each do |user| %>

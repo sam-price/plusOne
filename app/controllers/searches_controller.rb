@@ -7,7 +7,7 @@ class SearchesController < ApplicationController
     @cities = City.distinct.pluck(:name).sort_by(&:downcase)
 
   end
-# controlling the http methods 
+# controlling the http methods
   def create
     @search = Search.create(search_params)
     redirect_to @search
@@ -19,6 +19,6 @@ class SearchesController < ApplicationController
 
   private
   def search_params
-    params.require(:search).permit(:sports, :goals, :gyms, :cities)
+    params.require(:search).permit(:sports, :goals, :gyms, :cities, :gender)
   end
 end
