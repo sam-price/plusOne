@@ -14,13 +14,18 @@
       </div>
 
       <div class="card-content">
-        <% if current_user.sports.empty? %>
+        <div class="row">
+          <div class="col-md-12 text-center">
+            <% if current_user.sports.empty? %>
 
-          <p>To get the most out of this platform you will need to setup your preferences.</p>
+              <p>To get the most out of this platform you will need to setup your preferences.</p>
 
-          <%= link_to 'Setup Profile', edit_user_path(current_user), class: 'btn btn-default' %>
+              <%= link_to 'Setup Profile', edit_user_path(current_user), class: 'btn btn-primary btn-lg' %>
 
-        <% end %>
+            <% end %>
+          </div>
+        </div>
+
 
         <div class="row">
           <div class="col-md-12">
@@ -40,40 +45,69 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-header" data-background-color="blue">
-        <h2 class="text-center">My Messages</h2>
+        <h2 class="text-center">My Friends</h2>
         <h4 class="category text-center">Talk to your gym buddies here</h4>
       </div> <!-- end card-header-->
 
         <div class="card-content">
 
-
-        <!--Conversation Stuff-->
-        <div class="row">
-          <h4 class="text-center">Active Conversations</h4>
-          <div class="col-md-3">
+          <div class="col-md-6">
             <div class="panel panel-primary">
               <div class="panel-heading">
-                <h3 class="panel-title">Friends List</h3>
+                <h3 class="panel-title">Your Gym Buddies</h3>
               </div>
               <div class="panel-body">
+                <p>Open up a conversation and arrange to meet up!</p>
                 <ul>
                   <% @friends.each do |user| %>
+                    <% if @friends.empty? %>
+                      You haven't added any friends yet. <%= link_to_active_li 'Find a gym buddy now.', users_path %>
+                    <% else %>
 
-                  <% if @friends.empty? %>
-
-                  <% end %>
                   <li>
-
-                    <%= link_to user.first_name ++ user.last_name, conversations_path(user_id: user), remote: true, method: :post %>
-
+                    <%= user.first_name + ' ' + user.last_name %> -
+                    <%= link_to 'Send Message', conversations_path(user_id: user), remote: true, method: :post %>
                   </li>
+                  <% end %> <!-- end if statement -->
+
                   <% end %>
                 </ul>
               </div>
             </div>
           </div>
+          <div class="col-md-6">
+          <div class="panel panel-primary">
+            <div class="panel-heading">
+              <h3 class="panel-title">Pending Requests</h3>
+            </div>
+            <div class="panel-body">
+              <% if @pending.empty? %>
+              <p>No pending requests.</p>
 
-          <div class="col-md-9">
+              <% else %>
+
+              <p>These people have sent you a friend request. Don't leave them hanging.</p>
+
+              <% end %>
+              <ul>
+                <% @pending.each do |pending| %>
+
+                <li>
+                  <%= link_to pending.first_name + ' ' + pending.last_name, user_path(pending.id) %>
+                </li>
+                <% end %>
+
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!--Conversation Stuff-->
+        <div class="row">
+          <h4 class="text-center">Conversations</h4>
+          <hr></hr>
+
+          <div class="col-md-12">
             <ul id="conversations-list">
               <% @conversations.each do |conversation| %>
                 <%= render 'conversations/conversation', conversation: conversation, user: current_user %>
@@ -108,3 +142,24 @@
     </div>
   </div>
 </div>
+
+
+<% current_user.friendships.each do |f| %>
+  <% if f.state == "active" %>
+    <%= f.friend.email %>
+    <%= gravatar_tag f.friend.email, :html => { class: 'img', alt: 'Profile Picture' } %>
+    <% end %>
+<% end %>
+
+<% if current_user.active_friends %>
+
+<% end %>
+<% current_user.friendships.each do |f| %>
+  <% if f.state == "active" %>
+  Friends with :
+    <%= f.friend.email %>
+  <% elsif f.state == "pending"%>
+  Pending friend requests:
+    <%= link_to f.friend.email %>
+  <% end %>
+<% end %>

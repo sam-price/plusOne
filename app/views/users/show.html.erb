@@ -102,33 +102,18 @@
 
             <div class="col-md-3"><br><br>
           <div class="text-center">
+
+            <% if @user.id != current_user.id %>
+              <div class="btn btn-lg btn-success btn-block white"><%= action_buttons(@user) %></div>
+              <hr>
+            <% end %>
+
             <%= link_to 'View All Users', users_path, class: 'btn btn-info btn-block' %>
             <% if @user.id == current_user.id %>
               <%= link_to 'Change My Preferences', edit_user_path(current_user), class: 'btn btn-success btn-block' %>
             <% end %>
 
-            <% if @user.id != current_user.id %>
-              <div class="btn btn-success btn-block white"><%= action_buttons(@user) %></div>
-            <% end %>
-
           </div>
-
-              <% @user.friendships.each do |f| %>
-                <% if f.state == "active" %>
-                  <%= f.friend.email %>
-                  <%= gravatar_tag f.friend.email, :html => { class: 'img', alt: 'Profile Picture' } %>
-                  <% end %>
-              <% end %>
-
-              <% @user.friendships.each do |f| %>
-                <% if f.state == "active" %>
-                Friends with :
-                  <%= f.friend.email %>
-                <% elsif f.state == "pending"%>
-                Pending:
-                <%= f.friend.email %>
-                <% end %>
-              <% end %>
 
             </div>
           </div>
@@ -137,7 +122,15 @@
               <div class="col-md-6 col-sm-12">
                 <div class="card">
                   <div class="card-header" data-background-color="green">
-                    <h4 class="title">Activities</h4>
+                    <h4 class="title">
+                      Activities
+                      <p class="pull-right">
+                        <% if current_user.id == @user.id %>
+                          <%= link_to 'Change', edit_user_path(current_user) %>
+                        <% end %>
+                      </p>
+                    </h4>
+
                   </div>
 
                 <div class="card-content">
@@ -157,7 +150,14 @@
             <div class="col-md-6 col-sm-12">
               <div class="card">
                 <div class="card-header" data-background-color="blue">
-                  <h4 class="title">Current Goals</h4>
+                  <h4 class="title">
+                    Current Goals
+                    <p class="pull-right">
+                      <% if current_user.id == @user.id %>
+                        <%= link_to 'Change', edit_user_path(current_user) %>
+                      <% end %>
+                    </p>
+                  </h4>
                 </div>
 
                 <div class="card-content">
@@ -165,7 +165,7 @@
                     <h4>This user has not currently set any goals.</h4>
                   <% elsif @user.goals.empty? && current_user.id == @user.id %>
                     <h2>You haven't set any goals.</h2>
-                    <%= link_to 'Add your goals', edit_user_path(current_user) %>
+                    <%= link_to 'Add your goals', edit_user_path(current_user)%>
                   <% else %>
                   <h5><%= @user.goals.map(&:name).join(', ') %>.</h5>
                   <% end %>

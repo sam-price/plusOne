@@ -23,7 +23,7 @@ class FriendshipsController < ApplicationController
   def destroy
     @friendship.destroy
     respond_to do |format|
-      format.html {redirect_to users_path, notice: 'You have successfully removed your friend'}
+      format.html {redirect_to users_path, notice: 'Successfully removed'}
     end
   end
 

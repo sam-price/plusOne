@@ -49,7 +49,7 @@ App.conversation = App.cable.subscriptions.create("ConversationChannel", {
   }
 });
 $(document).on('submit', '.new_message', function(e) {
-  e.preventDefault();
+  e.preventdefault();
   var values = $(this).serializeArray();
   App.conversation.speak(values);
   $(this).trigger('reset');
