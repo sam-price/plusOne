@@ -25,7 +25,7 @@
         <div class="row">
           <div class="col-md-12">
             <div class="text-center">
-              <h4>Want to find a gym buddy straight away?</h4>
+              <h4>Want to find to find someone straight away?</h4>
 
             <%= link_to 'Get Started', new_search_path, class: 'btn btn-info btn-lg' %>
             </div>
@@ -94,96 +94,17 @@
   <div class="col-md-12">
     <div class="card">
       <div class="card-header" data-background-color="green">
-        <h4 class="title">Events</h4>
-        <h4 class="category">(Coming Soon)</h4>
+        <h2 class="title text-center">Events</h2>
+        <h4 class="category text-center">(Coming Soon)</h4>
+      </div>
+
+      <div class="card-content">
+
+        <%= month_calendar number_of_weeks: 2 do |date| %>
+          <%= date %>
+        <% end %>
+
       </div>
     </div>
   </div>
 </div>
-
-
-<div class="row">
-<div class="w-card-center">
-  <div class="welcome-card-wide mdl-card mdl-shadow--2dp">
-    <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text">My Groups</h2>
-    </div>
-    <div class="mdl-card__supporting-text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Mauris sagittis pellentesque lacus eleifend lacinia...
-    </div>
-    <div class="mdl-card__actions mdl-card--border">
-      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-        Get Started
-      </a>
-    </div>
-    <div class="mdl-card__menu">
-      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-        <i class="material-icons">share</i>
-      </button>
-    </div>
-  </div><!--Card 1-->
-
-  <div class="welcome-card-wide mdl-card mdl-shadow--2dp">
-    <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text">Gym</h2>
-    </div>
-    <div class="mdl-card__supporting-text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Mauris sagittis pellentesque lacus eleifend lacinia...
-    </div>
-    <div class="mdl-card__actions mdl-card--border">
-      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-        Get Started
-      </a>
-    </div>
-    <div class="mdl-card__menu">
-      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-        <i class="material-icons">share</i>
-      </button>
-    </div>
-  </div><!--Card 2-->
-
-  <div class="welcome-card-wide mdl-card mdl-shadow--2dp">
-    <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text">Friends</h2>
-    </div>
-    <div class="mdl-card__supporting-text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Mauris sagittis pellentesque lacus eleifend lacinia...
-    </div>
-    <div class="mdl-card__actions mdl-card--border">
-      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-        Get Started
-      </a>
-    </div>
-    <div class="mdl-card__menu">
-      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-        <i class="material-icons">share</i>
-      </button>
-    </div>
-  </div><!--Card 3-->
-
-  <div class="welcome-card-wide mdl-card mdl-shadow--2dp">
-    <div class="mdl-card__title">
-      <h2 class="mdl-card__title-text">Goals</h2>
-    </div>
-    <div class="mdl-card__supporting-text">
-      Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-      Mauris sagittis pellentesque lacus eleifend lacinia...
-    </div>
-    <div class="mdl-card__actions mdl-card--border">
-      <a class="mdl-button mdl-button--colored mdl-js-button mdl-js-ripple-effect">
-        Get Started
-      </a>
-    </div>
-    <div class="mdl-card__menu">
-      <button class="mdl-button mdl-button--icon mdl-js-button mdl-js-ripple-effect">
-        <i class="material-icons">share</i>
-      </button>
-    </div>
-  </div><!--Card 4-->
-
-</div>
-
-</div> <!--End Row-->

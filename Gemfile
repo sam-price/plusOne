@@ -66,3 +66,4 @@ gem 'gravatarify'
 gem 'will_paginate', '~> 3.1.0'
 gem 'bootstrap-will_paginate'
 gem 'pg_search'
+gem "simple_calendar", "~> 2.0"
