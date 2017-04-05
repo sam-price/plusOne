@@ -51,6 +51,8 @@
                       <p class="text-left">
                         <% if @user.bio.to_s.empty? %>
                             <%= @user.first_name %> hasn't set a description yet.
+                        <% else %>
+                          <%= @user.bio %>
                         <% end %>
                       </p>
                   </div>

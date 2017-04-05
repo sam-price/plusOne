@@ -25,6 +25,7 @@ class UsersController < ApplicationController
 
     @sports = Sport.all.order(name: :asc)
     @goals = Goal.all.order(name: :asc)
+    @gums = Gym.all.order(name: :asc)
     @workouts = Workout.all.order(:name)
     @moments = Moment.all
     @fitness_levels = FitnessLevel.all

@@ -17,6 +17,7 @@ class User < ApplicationRecord
 
   #accepts_nested_attributes_for :sports
   #accepts_nested_attributes_for :city
+  accepts_nested_attributes_for :gyms, :allow_destroy => true
 
 # Using Postgres full-text search for searching across multiple columns
 # in this example covering my first_name & last_name columns in one search

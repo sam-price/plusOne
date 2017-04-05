@@ -59,6 +59,16 @@ body{
   visibility: hidden;
 }
 
+.reset-form {
+  margin: 0;
+  padding: 0;
+}
+
+.devise-btn {
+  width: 100%;
+  max-width:200px;
+}
+
 @media (max-width: 1000px) {
   .no-vis {
     display:none;
