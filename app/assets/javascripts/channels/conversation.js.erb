@@ -10,8 +10,9 @@
 // #
 // #   speak: ->
 // #     @perform 'speak'
+// App.conversation = App.cable.subscriptions.create("ConversationChannel", {
 
-App.conversation = App.cable.subscriptions.create("ConversationChannel", {
+App.conversation = App.cable.subscriptions.create("<%= Rails.application.config.web_socket_server_url %>", {
   connected: function() {},
   disconnected: function() {},
   received: function(data) {

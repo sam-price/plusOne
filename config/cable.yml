@@ -4,6 +4,11 @@ development:
 test:
   adapter: async
 
-production:
+production: &production
   adapter: redis
-  url: redis://:action_cable@redis-10911.c13.us-east-1-3.ec2.cloud.redislabs.com:10911
+  url: redis://redistogo:3b683b0b84196f9f4174be2edf7b2f56@barreleye.redistogo.com:10744/
+  host: barreleye.redistogo.com
+  port: 10272
+  password: 3b683b0b84196f9f4174be2edf7b2f56
+  inline: true
+  timeout: 1
