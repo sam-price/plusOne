@@ -11,7 +11,7 @@
         <div class="card">
           <div class="card-header" data-background-color="orange">
             <!--simple logic for nicer reading if there is only one member-->
-            <h4><%= gym.name %> - <% if gym.users.size == 1 %><%= gym.users.size %> member <% else %> members <% end %>
+            <h4><%= gym.name %> - <% if gym.users.size == 1 %><%= gym.users.size %> member <% else %><%= gym.users.size %> members <% end %>
             </h4>
           </div>
 

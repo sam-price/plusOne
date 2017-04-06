@@ -66,14 +66,7 @@
   </div>
 
   <div class="card-footer">
-    <div class="stats">
-      Description:
-      <% if user.bio.to_s.empty? %>
-        none set
-      <% else %>
-        <%= user.bio %>
-      <% end %>
-    </div>
+  
     <div class="stats pull-right">
       <%= link_to 'View Profile', user_path(user.id), class: 'btn btn-info' %>
     </div>
