@@ -8,7 +8,8 @@
 
       <div class="card-content">
         <% if @search.search_users.empty? %>
-          Nothing
+          <h4>Sorry, nobody matches those settings.</h4>
+          <%= link_to 'Try Again?', new_search_path, class: 'btn btn-simple' %>
         <% else %>
         <% @search.search_users.each do |user| %>
         <div class="card card-stats">
@@ -91,11 +92,10 @@
               <%= link_to 'View Profile', user_path(user.id), class: 'btn btn-info' %>
             </div>
           </div>
-        </div>
+        </div> <!-- end card-stats -->
+        <% end %>
+      <% end %>
       </div>
     </div>
   </div>
 </div>
-
-  <% end %>
-<% end %>

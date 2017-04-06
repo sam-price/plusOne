@@ -8,7 +8,7 @@
       </div>
 <!-- Very simple form to display different select boxes dependent on what's in the arrays-->
       <div class="card-content">
-        <hr>
+        <%= link_to 'Go Back to all users', users_path, class: 'btn btn-simple' %>
         <p>Enter your search parameters below:</p>
         <%= simple_form_for @search do |s| %>
         <!--Using collections to select what was defined in the searches controller -->
