@@ -98,20 +98,7 @@
                 <%= f.input :bio, as: :text, label: false %>
             </div>
             </div>
-            <hr>
-            <h5>Selct a gym (more to be added in the future):</h5>
-
-            <% @gyms.each do |gym| %>
-            <div class="col-md-3">
-            <div class="checkbox inline">
-
-            <label>
-              <%= check_box_tag "user[gym_ids][]", gym.id, f.object.gyms.include?(gym) %>
-            </label>
-          </div>
-          <%= gym.name %>
-          </div>
-            <% end %>
+          
           </div> <!-- end col-->
 
         <div class="col-md-12">

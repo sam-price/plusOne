@@ -24,7 +24,7 @@ class UsersController < ApplicationController
 
     @sports = Sport.all.order(name: :asc)
     @goals = Goal.all.order(name: :asc)
-    @gums = Gym.all.order(name: :asc)
+    @gyms = Gym.all.order(name: :asc)
     @workouts = Workout.all.order(:name)
     @moments = Moment.all
     @fitness_levels = FitnessLevel.all
@@ -50,6 +50,6 @@ class UsersController < ApplicationController
   private
 # permitting paramaters to be edited in forms in the users view - for the edit page
   def user_params
-    params.require(:user).permit(:fitness_level_id, :moment_id, :workout_id, sport_ids: [], goal_ids: [])
+    params.require(:user).permit(:fitness_level_id, :moment_id, :workout_id, sport_ids: [], goal_ids: [], gym_ids: [])
   end
 end

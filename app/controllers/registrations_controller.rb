@@ -5,6 +5,7 @@ class RegistrationsController < Devise::RegistrationsController
     @gyms = Gym.all.order(name: :asc)
   end
 
+
   protected
 
 # Redirects the user to their profile after saving settings
